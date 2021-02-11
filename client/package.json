@@ -10,6 +10,7 @@
     "link-contracts": "cd lib && ln -s ../../build/contracts contracts"
   },
   "dependencies": {
+    "@web3-react/core": "^6.1.1",
     "next": "^10.0.6",
     "react": "16.14.0",
     "react-dom": "16.14.0",
