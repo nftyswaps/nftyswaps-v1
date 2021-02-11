@@ -1,8 +1,8 @@
 # NftySwaps
 Swappin NFTs
 
-To run first run yarn in the root folder as well as from client
-In one terminal window run truffle develop
+To run first run 'yarn' in the root folder as well as from client.
+In one terminal window run 'truffle develop'
 
 run 'compile', after the contracts compile run 'migrate'
 
