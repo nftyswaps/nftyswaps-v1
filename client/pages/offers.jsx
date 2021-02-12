@@ -6,7 +6,7 @@ const Offers = () => (
 	<MainWrapper>
 		<Header />
 
-		<AssetSwapBox />
+		{/* <AssetSwapBox /> */}
 	</MainWrapper>
 )
 
