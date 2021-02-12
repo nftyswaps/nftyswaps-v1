@@ -155,6 +155,14 @@
     "@babel/helper-plugin-utils" "^7.12.13"
     "semver" "^5.5.1"
 
+"@babel/polyfill@^7.8.7":
+  "integrity" "sha512-X0pi0V6gxLi6lFZpGmeNa4zxtwEmCs42isWLNjZZDE0Y8yVfgu0T2OAHlzBbdYlqbW/YXVvoBHpATEM+goCj8g=="
+  "resolved" "https://registry.npmjs.org/@babel/polyfill/-/polyfill-7.12.1.tgz"
+  "version" "7.12.1"
+  dependencies:
+    "core-js" "^2.6.5"
+    "regenerator-runtime" "^0.13.4"
+
 "@babel/runtime@^7.5.5":
   "integrity" "sha512-8+3UMPBrjFa/6TtKi/7sehPKqfAm4g6K+YQjyyFOLUTxzOngcRZTlAVY8sc2CORJYqdHQY8gRPHmn+qo15rCBw=="
   "resolved" "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.12.13.tgz"
@@ -2306,7 +2314,7 @@
   "resolved" "https://registry.yarnpkg.com/cookiejar/-/cookiejar-2.1.2.tgz"
   "version" "2.1.2"
 
-"core-js@^2.4.0", "core-js@^2.5.0":
+"core-js@^2.4.0", "core-js@^2.5.0", "core-js@^2.6.5":
   "integrity" "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ=="
   "resolved" "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz"
   "version" "2.6.12"
@@ -5788,12 +5796,20 @@
   "resolved" "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
+"react-js-banner@^0.5.2":
+  "integrity" "sha512-ePJIozK0A+Hhb3H4Mkoo/ohSRwE+qmBNrdogOEoOZcqlmFeqygANk1nRtOFDk+lnhMIxl1PLVL0AcYR5HJCdjw=="
+  "resolved" "https://registry.npmjs.org/react-js-banner/-/react-js-banner-0.5.2.tgz"
+  "version" "0.5.2"
+  dependencies:
+    "@babel/polyfill" "^7.8.7"
+    "react" "^16.0.0"
+
 "react-refresh@0.8.3":
   "integrity" "sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg=="
   "resolved" "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz"
   "version" "0.8.3"
 
-"react@^16.12.0", "react@^16.14.0", "react@^16.6.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.9.0 || ^17", "react@>= 16.8.0", "react@>=16.8", "react@15.x.x || 16.x.x || 17.x.x", "react@16.14.0":
+"react@^16.0.0", "react@^16.12.0", "react@^16.14.0", "react@^16.6.0 || ^17", "react@^16.8.0 || ^17.0.0", "react@^16.9.0 || ^17", "react@>= 16.8.0", "react@>=16.8", "react@15.x.x || 16.x.x || 17.x.x", "react@16.14.0":
   "integrity" "sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g=="
   "resolved" "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz"
   "version" "16.14.0"

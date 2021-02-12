@@ -4,6 +4,7 @@ import Head from 'next/head'
 import { Web3ReactProvider } from '@web3-react/core'
 import Web3 from 'web3'
 import { UseWalletProvider } from 'use-wallet'
+import styled from 'styled-components'
 
 const theme = {
 	device: {
@@ -29,15 +30,25 @@ const theme = {
 	},
 }
 
-// function getLibrary(provider, connector) {
-// 	return new Web3Provider(Web3) // this will vary according to whether you use e.g. ethers or web3.js
-// }
+const BannerWrapper = styled.div`
+	width: 100%;
+	background-color: #f6851b;
+	height: 5vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`
+const BannerWords = styled.h1`
+	font-family: ${({ theme }) => theme.fonts.montserrat};
+	font-size: 16px;
+	color: ${({ theme }) => theme.colors.primaryGray};
+`
 
 function MyApp({ Component, pageProps }) {
 	return (
 		<>
 			<Head>
-				<title>NiftySwaps</title>
+				<title>NftySwaps</title>
 				<meta charSet='utf-8' />
 				<meta
 					name='viewport'
@@ -49,10 +60,14 @@ function MyApp({ Component, pageProps }) {
 					rel='stylesheet'
 				/>
 			</Head>
-			<UseWalletProvider
-				chainId={4}
-			>
+			<UseWalletProvider chainId={4}>
 				<ThemeProvider theme={theme}>
+					<BannerWrapper>
+						<BannerWords>
+							Project under construction, please use with caution.
+							Connect with Metamask via the Rinkeby testnet
+						</BannerWords>
+					</BannerWrapper>
 					<Component {...pageProps} />
 				</ThemeProvider>
 			</UseWalletProvider>
