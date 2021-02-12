@@ -22,7 +22,6 @@ const AssetSwapBox = () => {
 		fetchCurrentUserAssets(setData, userAccount)
 	}
 
-	console.log(data)
 	return wallet.status === 'connected' && data ? (
 		<MainWindowWrapper>
 			<AssetSwapBoxWrapper>

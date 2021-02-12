@@ -26,8 +26,8 @@ export const AssetSwapBoxTitle = styled.h1`
 
 export const AssetSwapBoxList = styled.div`
 	display: flex;
-	justify-content: flex-start;
 	flex-wrap: wrap;
+	align-items: flex-start;
 	width: 100%;
 	height: 100%;
 	padding: 0 5vh;
