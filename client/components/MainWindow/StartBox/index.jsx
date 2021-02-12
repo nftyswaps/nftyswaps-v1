@@ -12,22 +12,28 @@ import {
 } from './Styles/DefaultSwapBoxStyles'
 import { useWallet } from 'use-wallet'
 import useInputChange from '../../../hooks/useInputChange'
+import { useRouter } from 'next/router'
+
+const preventDefault = (f) => (e) => {
+	e.preventDefault()
+	f(e)
+}
 
 const StartBox = () => {
 	const wallet = useWallet()
+	const router = useRouter()
 	const [input, handleInputChange] = useInputChange()
 
-	console.log(input)
+	const handleSubmit = preventDefault(() => {
+		router.push(`/swap/${input.addressToSearch}`)
+	})
+
 	return wallet.status === 'connected' ? (
 		<LoggedInSwapBoxWrapper>
 			<LoggedInSwapBoxP>
 				Enter an address below, or view your current offers
 			</LoggedInSwapBoxP>
-			<form
-				onSubmit={() => {
-					alert('submitted' + input.addressToSearch)
-				}}
-			>
+			<form onSubmit={handleSubmit}>
 				<LoggedInSwapBoxInput
 					onChange={handleInputChange}
 					name='addressToSearch'

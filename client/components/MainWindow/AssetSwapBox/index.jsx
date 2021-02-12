@@ -38,7 +38,7 @@ const AssetSwapBox = () => {
 						</AssetWrapper>
 					))}
 					{/* ----------------TEST ITEMS--------------------- */}
-					<AssetWrapper>
+					{/* <AssetWrapper>
 						<AssetThumb src={data.assets[0].image_url} />
 						<AssetTitle>{data.assets[0].name}</AssetTitle>
 						<AssetArtist>
@@ -65,7 +65,7 @@ const AssetSwapBox = () => {
 						<AssetArtist>
 							{data.assets[0].creator.user.username}
 						</AssetArtist>
-					</AssetWrapper>
+					</AssetWrapper> */}
 				</AssetSwapBoxList>
 			</AssetSwapBoxWrapper>
 		</MainWindowWrapper>

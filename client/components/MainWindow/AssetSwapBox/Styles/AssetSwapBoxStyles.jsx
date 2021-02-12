@@ -32,9 +32,6 @@ export const AssetSwapBoxList = styled.div`
 	height: 100%;
 	padding: 0 5vh;
 	overflow-y: scroll;
-	&:nth-last-child() {
-		justify-content: flex-start;
-	}
 `
 
 export const AssetWrapper = styled.div`
