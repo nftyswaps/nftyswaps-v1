@@ -6,6 +6,7 @@ import {
 	AssetThumb,
 	AssetSwapBoxList,
 	AssetSwapBoxTitle,
+	AssetSwapBoxTitleWrapper,
 	AssetWrapper,
 	AssetTitle,
 	AssetArtist,
@@ -18,7 +19,9 @@ const ActiveAssetSwapBox = ({ data, title }) => {
 	return wallet.status === 'connected' && data ? (
 		<>
 			<AssetSwapBoxWrapper>
-				<AssetSwapBoxTitle>{title}</AssetSwapBoxTitle>
+				<AssetSwapBoxTitleWrapper>
+					<AssetSwapBoxTitle>{title}</AssetSwapBoxTitle>
+				</AssetSwapBoxTitleWrapper>
 				<AssetSwapboxListTemp data={data} />
 			</AssetSwapBoxWrapper>
 		</>

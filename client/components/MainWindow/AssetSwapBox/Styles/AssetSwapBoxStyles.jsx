@@ -5,7 +5,7 @@ export const AssetSwapBoxWrapper = styled.div`
 	height: 70vh;
 	width: 70vh;
 	border-radius: 7px;
-	padding: 5vh 5px;
+	padding: 5vh 7vh;
 
 	display: flex;
 	flex-direction: column;
@@ -20,8 +20,17 @@ export const AssetSwapBoxTitle = styled.h1`
 	font-variant-caps: all-small-caps;
 	letter-spacing: 7px;
 	font-size: 48px;
-	margin: 0 0 5vh 0;
 	text-shadow: 5px 5px 0.5rem #000;
+	text-align: center;
+	text-overflow: ellipsis;
+	overflow: hidden;
+`
+
+export const AssetSwapBoxTitleWrapper = styled.h1`
+	width: 50%;
+	height: auto;
+	text-overflow: ellipsis;
+	margin: 0 0 5vh 0;
 `
 
 export const AssetSwapBoxList = styled.div`
@@ -31,7 +40,7 @@ export const AssetSwapBoxList = styled.div`
 	justify-content: space-between;
 	width: 100%;
 	height: auto;
-	padding: 0 5vh;
+	/* padding: 0 5vh; */
 	overflow-y: scroll;
 `
 
