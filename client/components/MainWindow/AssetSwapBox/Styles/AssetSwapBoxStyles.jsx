@@ -27,9 +27,10 @@ export const AssetSwapBoxTitle = styled.h1`
 export const AssetSwapBoxList = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	align-items: flex-start;
+	/* align-items: space-between; */
+	justify-content: space-between;
 	width: 100%;
-	height: 100%;
+	height: auto;
 	padding: 0 5vh;
 	overflow-y: scroll;
 `
@@ -41,9 +42,9 @@ export const AssetWrapper = styled.div`
 	justify-content: center;
 	align-items: center;
 	cursor: pointer;
-	&:nth-child(odd) {
+	/* &:nth-child(odd) {
 		margin-right: auto;
-	}
+	} */
 `
 
 export const AssetThumb = styled.img`

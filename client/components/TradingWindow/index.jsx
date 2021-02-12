@@ -3,6 +3,7 @@ import ActiveAssetSwapBox from './ActiveAssetSwapBox'
 import { TradingWindowWrapper } from './TradingWindowStyles/TradingWindowStyles'
 
 const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {
+	console.log(userTwoData)
 	return (
 		<TradingWindowWrapper>
 			<ActiveAssetSwapBox data={userOneData} title={'My Assets'} />

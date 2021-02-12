@@ -17,7 +17,7 @@ const AssetSwapboxListTemp = ({ data }) => (
 			<AssetWrapper>
 				<AssetThumb src={asset.image_url} />
 				<AssetTitle>{asset.name}</AssetTitle>
-				<AssetArtist>{asset.creator.user.username}</AssetArtist>
+				<AssetArtist>{asset.collection.name}</AssetArtist>
 			</AssetWrapper>
 		))}
 		{/* ---------------- TEST ITEMS --------------------- */}
