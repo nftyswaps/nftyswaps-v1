@@ -1,6 +1,9 @@
 import '../globalStyles/globals.css'
 import { ThemeProvider } from 'styled-components'
 import Head from 'next/head'
+import { Web3ReactProvider } from '@web3-react/core'
+import Web3 from 'web3'
+import { UseWalletProvider } from 'use-wallet'
 
 const theme = {
 	device: {
@@ -26,6 +29,10 @@ const theme = {
 	},
 }
 
+// function getLibrary(provider, connector) {
+// 	return new Web3Provider(Web3) // this will vary according to whether you use e.g. ethers or web3.js
+// }
+
 function MyApp({ Component, pageProps }) {
 	return (
 		<>
@@ -42,9 +49,13 @@ function MyApp({ Component, pageProps }) {
 					rel='stylesheet'
 				/>
 			</Head>
-			<ThemeProvider theme={theme}>
-				<Component {...pageProps} />
-			</ThemeProvider>
+			<UseWalletProvider
+				chainId={4}
+			>
+				<ThemeProvider theme={theme}>
+					<Component {...pageProps} />
+				</ThemeProvider>
+			</UseWalletProvider>
 		</>
 	)
 }
