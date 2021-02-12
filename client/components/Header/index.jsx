@@ -12,10 +12,12 @@ import Login from './Login'
 const Header = () => (
 	<HeaderWrapper>
 		<TitleAndLinkFlex>
-			<TitleLogo>NftySwaps</TitleLogo>
+			<Link href='/'>
+				<TitleLogo>NftySwaps</TitleLogo>
+			</Link>
 			<ListOfTheLinks>
 				<li>
-					<Link href='/accounts'>
+					<Link href='/offers'>
 						<StyledLink>My Offers</StyledLink>
 					</Link>
 				</li>
