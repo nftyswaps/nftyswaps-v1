@@ -49,6 +49,10 @@ function MyApp({ Component, pageProps }) {
 		<>
 			<Head>
 				<title>NftySwaps</title>
+				<link
+					rel='shortcut icon'
+					href='https://i.ibb.co/2hw3KpR/swap-icon-png-0.png'
+				/>
 				<meta charSet='utf-8' />
 				<meta
 					name='viewport'
