@@ -9,7 +9,6 @@ const fetchCurrentUserAssets = (setData, userAccount) => {
 	)
 		.then((response) => response.json())
 		.then((data) => {
-			// console.log(data)
 			setData(data)
 		})
 		.catch((err) => {

@@ -5,6 +5,8 @@ import Header from '../components/Header/index'
 import UserAssetsBox from '../components/UserAssetsWindow'
 import fetchCurrentUserAssets from '../queries/opensea/fetchCurrentUserAssets'
 import useIsLoggedIn from '../hooks/useIsLoggedIn'
+import WelcomeBox from '../components/SearchWindow/WelcomeBox'
+import { SingleWindowWrapper } from '../globalStyles/SingleWindowStyles'
 
 const Assets = () => {
 	const wallet = useWallet()
@@ -16,12 +18,18 @@ const Assets = () => {
 	if (data == null && isLoggedIn == 'connected') {
 		fetchCurrentUserAssets(setData, userAccount)
 	}
-
+	console.log(data)
 	return (
 		<MainWrapper>
 			<Header />
 
-			<UserAssetsBox data={data} />
+			<SingleWindowWrapper>
+				{isLoggedIn === 'connected' ? (
+					<UserAssetsBox data={data} />
+				) : (
+					<WelcomeBox />
+				)}
+			</SingleWindowWrapper>
 		</MainWrapper>
 	)
 }

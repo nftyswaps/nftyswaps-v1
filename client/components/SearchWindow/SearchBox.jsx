@@ -30,6 +30,7 @@ const SearchBox = () => {
 				<SearchBoxInput
 					onChange={handleInputChange}
 					name='addressToSearch'
+					required
 				/>
 				<SearchBoxSubmit />
 			</form>
