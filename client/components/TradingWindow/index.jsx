@@ -1,12 +1,12 @@
 import React from 'react'
-import ActiveAssetSwapBox from './ActiveAssetSwapBox'
+import TradingSwapBox from './TradingSwapBox'
 import { TradingWindowWrapper } from './TradingWindowStyles/TradingWindowStyles'
 
 const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {
 	return (
 		<TradingWindowWrapper>
-			<ActiveAssetSwapBox data={userOneData} title={'My Assets'} />
-			<ActiveAssetSwapBox data={userTwoData} title={userTwoAddress} />
+			<TradingSwapBox data={userOneData} title={'My Assets'} />
+			<TradingSwapBox data={userTwoData} title={userTwoAddress} />
 		</TradingWindowWrapper>
 	)
 }

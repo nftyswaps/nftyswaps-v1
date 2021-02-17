@@ -26,7 +26,7 @@ export const AssetSwapBoxTitle = styled.h1`
 	overflow: hidden;
 `
 
-export const AssetSwapBoxTitleWrapper = styled.h1`
+export const AssetSwapBoxTitleWrapper = styled.div`
 	width: 50%;
 	height: auto;
 	text-overflow: ellipsis;

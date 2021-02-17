@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { Web3ReactProvider } from '@web3-react/core'
 import Web3 from 'web3'
 import { UseWalletProvider } from 'use-wallet'
-import styled from 'styled-components'
+import Banner from '../components/Banner'
 
 const theme = {
 	device: {
@@ -30,33 +30,23 @@ const theme = {
 	},
 }
 
-const BannerWrapper = styled.div`
-	width: 100%;
-	background-color: #f6851b;
-	height: 5vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`
-const BannerWords = styled.h1`
-	font-family: ${({ theme }) => theme.fonts.montserrat};
-	font-size: 16px;
-	color: ${({ theme }) => theme.colors.primaryGray};
-`
-
 function MyApp({ Component, pageProps }) {
 	return (
 		<>
 			<Head>
 				<title>NftySwaps</title>
-				<link
-					rel='shortcut icon'
-					href='https://i.ibb.co/2hw3KpR/swap-icon-png-0.png'
-				/>
 				<meta charSet='utf-8' />
 				<meta
 					name='viewport'
 					content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1'
+				/>
+				<meta
+					name='description'
+					content='An open source, decentralized platform for trading digital assets.'
+				></meta>
+				<link
+					rel='shortcut icon'
+					href='https://i.ibb.co/2hw3KpR/swap-icon-png-0.png'
 				/>
 				<link rel='preconnect' href='https://fonts.gstatic.com' />
 				<link
@@ -66,12 +56,7 @@ function MyApp({ Component, pageProps }) {
 			</Head>
 			<UseWalletProvider chainId={4}>
 				<ThemeProvider theme={theme}>
-					<BannerWrapper>
-						<BannerWords>
-							Project under construction, please use with caution.
-							Connect with Metamask via the Rinkeby testnet
-						</BannerWords>
-					</BannerWrapper>
+					<Banner />
 					<Component {...pageProps} />
 				</ThemeProvider>
 			</UseWalletProvider>
