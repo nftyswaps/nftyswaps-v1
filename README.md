@@ -1,22 +1,23 @@
 # Demo currently hosted at [nftyswaps.com](www.nftyswaps.com)
 
-# Nftyswaps
-
 Swapping NFTs
 
-To run first run in the root folder as well as from client.
+To install dependencies
 ```bash
 yarn
 ```
-In one terminal window run 
+In another terminal window set up your truffle environment
 ```bash
 truffle develop
 ```
+Next compile your contracts and migrate them to the build folder
+```bash
+compile | migrate
+```
 
-run 'compile', after the contracts compile run 'migrate'
+In a different terminal window 
+```bash
+cd client | yarn link-contracts | yarn dev
+```
 
-In another terminal window 'cd client'
-from here run 'yarn link-contracts'
-followed by 'yarn dev'
-
-You're all set
+Now you're all set!
