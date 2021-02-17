@@ -1,6 +1,6 @@
 # Demo currently hosted at [nftyswaps.com](www.nftyswaps.com)
 
-Swapping NFTs
+_Now we're swapping NFTs_
 
 To install dependencies
 ```bash
