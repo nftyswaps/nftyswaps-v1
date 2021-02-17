@@ -1,11 +1,17 @@
-# Demo currently hosted at https://0be927266ada.ngrok.io
+# Demo currently hosted at [nftyswaps.com](www.nftyswaps.com)
 
-# NftySwaps
+# Nftyswaps
 
-Swappin NFTs
+Swapping NFTs
 
-To run first run 'yarn' in the root folder as well as from client.
-In one terminal window run 'truffle develop'
+To run first run in the root folder as well as from client.
+```bash
+yarn
+```
+In one terminal window run 
+```bash
+truffle develop
+```
 
 run 'compile', after the contracts compile run 'migrate'
 
