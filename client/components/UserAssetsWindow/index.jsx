@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useWallet } from 'use-wallet'
-import { MainWindowWrapper } from '../MainWindow/MainWindowStyles/MainWindowStyles'
+import { SingleWindowWrapper } from '../../globalStyles/SingleWindowStyles'
+import WelcomeBox from '../SearchWindow/WelcomeBox'
 import {
 	AssetSwapBoxBody,
 	AssetSwapBoxWrapper,
@@ -15,29 +16,28 @@ import {
 const UserAssetsBox = ({ data }) => {
 	const wallet = useWallet()
 
-	return wallet.status === 'connected' && data ? (
-		<MainWindowWrapper>
-			<AssetSwapBoxWrapper>
-				<AssetSwapBoxTitle>My Assets</AssetSwapBoxTitle>
-				<AssetSwapBoxList>
-					{data.assets.map((asset) => (
-						<AssetWrapper key={asset.id}>
-							<AssetThumb src={asset.image_url} />
-							<AssetTitle>{asset.name}</AssetTitle>
-							<AssetArtist>
-								{asset.creator.user.username}
-							</AssetArtist>
-						</AssetWrapper>
-					))}
-				</AssetSwapBoxList>
-			</AssetSwapBoxWrapper>
-		</MainWindowWrapper>
-	) : (
-		<MainWindowWrapper>
-			<AssetSwapBoxWrapper>
-				<AssetSwapBoxTitle>Loading</AssetSwapBoxTitle>
-			</AssetSwapBoxWrapper>
-		</MainWindowWrapper>
+	return (
+		<SingleWindowWrapper>
+			{wallet.status === 'connected' && data ? (
+				<AssetSwapBoxWrapper>
+					<AssetSwapBoxTitle>My Assets</AssetSwapBoxTitle>
+					<AssetSwapBoxList>
+						{data.assets.map((asset) => (
+							<AssetWrapper key={asset.id}>
+								<AssetThumb src={asset.image_url} />
+								<AssetTitle>{asset.name}</AssetTitle>
+								<AssetArtist>
+									{asset.creator.user.username ||
+										asset.collection.name}
+								</AssetArtist>
+							</AssetWrapper>
+						))}
+					</AssetSwapBoxList>
+				</AssetSwapBoxWrapper>
+			) : (
+				<WelcomeBox />
+			)}
+		</SingleWindowWrapper>
 	)
 }
 

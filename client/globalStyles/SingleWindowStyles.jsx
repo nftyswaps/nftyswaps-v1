@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const MainWindowWrapper = styled.main`
+export const SingleWindowWrapper = styled.main`
 	height: 100%;
 	width: 100vw;
 

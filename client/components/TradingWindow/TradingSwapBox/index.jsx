@@ -26,7 +26,10 @@ const TradingSwapBox = ({ data, title }) => {
 					<AssetWrapper key={asset.id}>
 						<AssetThumb src={asset.image_url} />
 						<AssetTitle>{asset.name}</AssetTitle>
-						<AssetArtist>{asset.collection.name}</AssetArtist>
+						<AssetArtist>
+							{asset.creator.user.username ||
+								asset.collection.name}
+						</AssetArtist>
 					</AssetWrapper>
 				))}
 			</AssetSwapBoxList>

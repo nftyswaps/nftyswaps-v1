@@ -4,13 +4,16 @@ import MainWrapper from '../globalStyles/MainWrapper'
 import Header from '../components/Header/index'
 import UserAssetsBox from '../components/UserAssetsWindow'
 import fetchCurrentUserAssets from '../queries/opensea/fetchCurrentUserAssets'
+import useIsLoggedIn from '../hooks/useIsLoggedIn'
 
 const Assets = () => {
 	const wallet = useWallet()
 	const userAccount = wallet.account
 	const [data, setData] = useState(null)
+	const isLoggedIn = useIsLoggedIn()
+	console.log(isLoggedIn)
 
-	if (data == null && wallet.status == 'connected') {
+	if (data == null && isLoggedIn == 'connected') {
 		fetchCurrentUserAssets(setData, userAccount)
 	}
 

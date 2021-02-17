@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import Header from '../components/Header'
 import MainWrapper from '../globalStyles/MainWrapper'
-import HomeBox from '../components/MainWindow/HomeBox'
+import StartBox from '../components/SearchWindow/index'
 
 const Index = () => {
 	return (
 		<MainWrapper>
 			<Header />
 
-			<HomeBox />
+			<StartBox />
 		</MainWrapper>
 	)
 }
