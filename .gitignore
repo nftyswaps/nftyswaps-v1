@@ -2,7 +2,6 @@ node_modules
 client/node_modules
 yarn.lock
 client/.next
-client/.yarn.lock
 .client/lib/contracts
 build
 .DS_Store
@@ -45,4 +44,3 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 .next
-client/yarn.lock
