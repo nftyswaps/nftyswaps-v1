@@ -13,9 +13,7 @@ import {
 } from '../../UserAssetsWindow/Styles/AssetSwapBoxStyles'
 
 const TradingSwapBox = ({ data, title }) => {
-	const wallet = useWallet()
-
-	return wallet.status === 'connected' && data ? (
+	return data ? (
 		<AssetSwapBoxWrapper>
 			<AssetSwapBoxTitleWrapper>
 				<AssetSwapBoxTitle>{title}</AssetSwapBoxTitle>

@@ -1,6 +1,7 @@
 import React from 'react'
 import useInputChange from '../../hooks/useInputChange'
 import { useRouter } from 'next/router'
+import Web3 from 'web3'
 import {
 	SearchBoxWrapper,
 	SearchBoxInput,
@@ -15,10 +16,15 @@ const preventDefault = (f) => (e) => {
 
 const SearchBox = () => {
 	const router = useRouter()
+	const web3 = new Web3(Web3.givenProvider)
+
 	const [input, handleInputChange] = useInputChange()
 
 	const handleSubmit = preventDefault(() => {
-		router.push(`/swap/${input.addressToSearch}`)
+		const isValid = web3.utils.isAddress(input.addressToSearch)
+		if (isValid) {
+			router.push(`/swap/${input.addressToSearch}`)
+		} else alert('Address is not valid, please try again')
 	})
 
 	return (

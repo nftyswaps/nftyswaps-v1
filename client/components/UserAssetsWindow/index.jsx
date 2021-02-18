@@ -15,8 +15,6 @@ import {
 } from './Styles/AssetSwapBoxStyles'
 
 const UserAssetsBox = ({ data }) => {
-	const isLoggedIn = useIsLoggedIn()
-
 	return data ? (
 		<AssetSwapBoxWrapper>
 			<AssetSwapBoxTitle>My Assets</AssetSwapBoxTitle>
