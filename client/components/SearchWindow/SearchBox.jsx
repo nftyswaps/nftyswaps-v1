@@ -1,7 +1,8 @@
 import React from 'react'
-import useInputChange from '../../hooks/useInputChange'
-import { useRouter } from 'next/router'
 import Web3 from 'web3'
+import { useRouter } from 'next/router'
+
+import useInputChange from '../../hooks/useInputChange'
 import {
 	SearchBoxWrapper,
 	SearchBoxInput,

@@ -3,10 +3,11 @@ import { BannerWrapper, BannerWords, BannerClose } from './BannerStyles'
 
 const Banner = () => {
 	const [isHidden, setIsHidden] = useState(false)
-	console.log(isHidden)
+
 	const handleClick = () => {
 		setIsHidden(true)
 	}
+	
 	return (
 		<BannerWrapper isHidden={isHidden}>
 			<BannerWords>
