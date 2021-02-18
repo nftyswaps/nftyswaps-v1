@@ -1,4 +1,4 @@
-# Demo currently hosted at [nftyswaps.com](www.nftyswaps.com)
+# Demo currently hosted at [nftyswaps.com](https://nftyswaps.com)
 
 _Now we're swapping NFTs_
 
