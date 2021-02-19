@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { useWallet } from 'use-wallet'
 import MainWrapper from '../globalStyles/MainWrapper'
 import Header from '../components/Header/index'
-import UserAssetsBox from '../components/UserAssetsWindow'
 import fetchCurrentUserAssets from '../queries/opensea/fetchCurrentUserAssets'
 import useIsLoggedIn from '../hooks/useIsLoggedIn'
 import WelcomeBox from '../components/SearchWindow/WelcomeBox'
 import { SingleWindowWrapper } from '../globalStyles/SingleWindowStyles'
+import AssetBox from '../components/AssetBox/index'
 
 const Assets = () => {
 	const wallet = useWallet()
@@ -25,7 +25,7 @@ const Assets = () => {
 
 			<SingleWindowWrapper>
 				{isLoggedIn === 'connected' ? (
-					<UserAssetsBox data={data} />
+					<AssetBox data={data} title='My Assets' />
 				) : (
 					<WelcomeBox />
 				)}

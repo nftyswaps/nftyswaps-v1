@@ -1,8 +1,4 @@
 import React, { useState } from 'react'
-import { useWallet } from 'use-wallet'
-import { SingleWindowWrapper } from '../../globalStyles/SingleWindowStyles'
-import WelcomeBox from '../SearchWindow/WelcomeBox'
-import useIsLoggedIn from '../../hooks/useIsLoggedIn'
 import {
 	AssetSwapBoxBody,
 	AssetSwapBoxWrapper,
@@ -12,20 +8,21 @@ import {
 	AssetWrapper,
 	AssetTitle,
 	AssetArtist,
-} from './Styles/AssetSwapBoxStyles'
+} from './Styles/AssetBoxStyles'
 
-const UserAssetsBox = ({ data }) => {
+const AssetBox = ({ data, title }) => {
 	return data ? (
 		<AssetSwapBoxWrapper>
-			<AssetSwapBoxTitle>My Assets</AssetSwapBoxTitle>
+			<AssetSwapBoxTitle>{title}</AssetSwapBoxTitle>
 			<AssetSwapBoxList>
 				{data.assets.map((asset) => (
 					<AssetWrapper key={asset.id}>
 						<AssetThumb src={asset.image_url} />
 						<AssetTitle>{asset.name}</AssetTitle>
 						<AssetArtist>
-							{asset.creator.user.username ||
-								asset.collection.name}
+							{asset.collection.name ||
+								asset.creator.user.username ||
+								'Unknown'}
 						</AssetArtist>
 					</AssetWrapper>
 				))}
@@ -38,4 +35,4 @@ const UserAssetsBox = ({ data }) => {
 	)
 }
 
-export default UserAssetsBox
+export default AssetBox
