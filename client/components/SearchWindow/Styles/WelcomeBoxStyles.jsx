@@ -5,14 +5,20 @@ import styled from 'styled-components'
 export const WelcomeBoxWrapper = styled.div`
 	background: ${({ theme }) => theme.colors.primaryGray};
 	height: 50vh;
-	width: 60vh;
 	border-radius: 7px;
-	padding: 5vh;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+
+	width: 95%;
+	padding: 5vh 5vw;
+
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		padding: 5vh 5vw;
+		width: 50vh;
+	}
 `
 
 export const WelcomeBoxTitle = styled.h1`
@@ -35,8 +41,8 @@ export const WelcomeBoxBody = styled.div`
 export const SwapFox = styled.img`
 	-webkit-filter: drop-shadow(0 0 1rem #111);
 	filter: drop-shadow(0 0 1rem #111);
-	height: 15vh;
-	width: 15vh;
+	height: 12vh;
+	width: 12vh;
 `
 
 export const WelcomeBoxP = styled.p`
@@ -45,5 +51,6 @@ export const WelcomeBoxP = styled.p`
 	color: ${({ theme }) => theme.colors.white};
 	font-variant-caps: all-small-caps;
 	letter-spacing: 3px;
+	text-align: center;
 	font-size: 24px;
 `

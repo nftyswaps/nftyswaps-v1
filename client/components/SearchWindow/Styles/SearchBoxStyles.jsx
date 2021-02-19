@@ -5,31 +5,60 @@ import styled from 'styled-components'
 export const SearchBoxWrapper = styled.div`
 	background: ${({ theme }) => theme.colors.primaryGray};
 	height: 50vh;
-	width: 60vh;
 	border-radius: 7px;
-	padding: 15vh 9vh;
 
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+
+	width: 95%;
+	padding: 5vh 5vw;
+
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		padding: 5vh 5vw;
+		width: 50vh;
+	}
+`
+
+export const SearchBoxTitle = styled.h1`
+	font-family: ${({ theme }) => theme.fonts.raleway};
+	color: ${({ theme }) => theme.colors.white};
+	font-variant-caps: all-small-caps;
+	letter-spacing: 7px;
+	margin-top: 0;
+	font-size: 48px;
+	@media (min-width: ${({ theme }) => theme.device.laptop}) {
+		font-size: 56px;
+	}
+`
+
+export const SearchInputWrapper = styled.div`
+	width: 85vw;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		width: 42vh;
+	}
 `
 
 export const SearchBoxInput = styled.input.attrs({
 	type: 'text',
 	placeholder: '0x',
 })`
+	font-family: ${({ theme }) => theme.fonts.montserrat};
 	background-color: ${({ theme }) => theme.colors.tertiaryGray};
 	color: ${({ theme }) => theme.colors.white};
 	text-overflow: fade();
-	width: 350px;
 	height: 45px;
 	padding-right: 70px;
 	padding-left: 20px;
-	font-family: ${({ theme }) => theme.fonts.montserrat};
 	border-radius: 7px;
 	&:active {
 		outline: none;
+	}
+
+	width: 85vw;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		width: 42vh;
 	}
 `
 export const SearchBoxSubmit = styled.input.attrs({
@@ -54,6 +83,10 @@ export const SearchBoxP = styled.p`
 	font-variant-caps: all-small-caps;
 	letter-spacing: 3px;
 	text-align: center;
-	font-size: 24px;
 	margin: 0;
+	font-size: 16px;
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
+		font-size: 24px;
+	}
+	margin-bottom: 4vh;
 `

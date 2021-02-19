@@ -4,10 +4,12 @@ import { useRouter } from 'next/router'
 
 import useInputChange from '../../hooks/useInputChange'
 import {
+	SearchBoxTitle,
 	SearchBoxWrapper,
 	SearchBoxInput,
 	SearchBoxP,
 	SearchBoxSubmit,
+	SearchInputWrapper,
 } from './Styles/SearchBoxStyles'
 
 const preventDefault = (f) => (e) => {
@@ -30,17 +32,20 @@ const SearchBox = () => {
 
 	return (
 		<SearchBoxWrapper>
-			<SearchBoxP>
-				Enter an address below, or view your current offers
-			</SearchBoxP>
-			<form onSubmit={handleSubmit}>
-				<SearchBoxInput
-					onChange={handleInputChange}
-					name='addressToSearch'
-					required
-				/>
-				<SearchBoxSubmit />
-			</form>
+			<SearchBoxTitle>Welcome</SearchBoxTitle>
+			<SearchInputWrapper>
+				<SearchBoxP>
+					Enter an address below, or view your current offers
+				</SearchBoxP>
+				<form onSubmit={handleSubmit}>
+					<SearchBoxInput
+						onChange={handleInputChange}
+						name='addressToSearch'
+						required
+					/>
+					<SearchBoxSubmit />
+				</form>
+			</SearchInputWrapper>
 		</SearchBoxWrapper>
 	)
 }
