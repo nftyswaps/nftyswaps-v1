@@ -7,6 +7,10 @@ export const TradingWindowWrapper = styled.main`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 5vh 2.5vw;
+	flex-direction: column;
 
-	padding: 0 5vw;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		flex-direction: row;
+	}
 `
