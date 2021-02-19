@@ -17,13 +17,20 @@ export const BannerWrapper = styled.div`
 export const BannerWords = styled.h2`
 	font-family: ${({ theme }) => theme.fonts.montserrat};
 	color: ${({ theme }) => theme.colors.primaryGray};
-	font-size: 16px;
+	text-overflow: wrap;
+	text-align: center;
+	width: 70%;
+	font-size: 8px;
 	position: fixed;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		font-size: 16px;
+	}
 `
 
 export const BannerClose = styled(Close)`
 	height: 24px;
 	width: 24px;
 	margin-left: auto;
+
 	cursor: pointer;
 `

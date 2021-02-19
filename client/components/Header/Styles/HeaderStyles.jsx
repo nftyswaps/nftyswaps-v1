@@ -11,7 +11,6 @@ export const HeaderWrapper = styled.nav`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	/* overflow: hidden; */
 	padding: 0 5vw 0 5vw;
 `
 
@@ -20,9 +19,19 @@ export const TitleLogo = styled.h1`
 	font-family: ${({ theme }) => theme.fonts.raleway};
 	color: ${({ theme }) => theme.colors.orange};
 	cursor: pointer;
+	font-size: 32px;
+	line-height: 32px;
 	letter-spacing: 7px;
-	font-size: 64px;
-	margin-right: 2.5vw;
+
+	@media (min-width: ${({ theme }) => theme.device.laptop}) {
+		font-size: 48px;
+		line-height: 48px;
+	}
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
+		font-size: 64px;
+		line-height: 64px;
+		margin-right: 2.5vw;
+	}
 `
 
 export const TitleAndLinkFlex = styled.div`
@@ -44,7 +53,11 @@ export const StyledLink = styled.a`
 
 	color: ${({ theme }) => theme.colors.white};
 	font-family: ${({ theme }) => theme.fonts.montserrat};
-	font-size: 24px;
+	font-size: 16px;
+
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
+		font-size: 24px;
+	}
 `
 
 // Login Button
@@ -53,9 +66,9 @@ export const LoginWrapper = styled.div`
 	cursor: pointer;
 	overflow: hidden;
 	height: 7vh;
-	width: 20vw;
+	width: auto;
 	border-radius: 7px;
-	padding: 0 60px 0 20px;
+	padding: 0 2.5vw;
 	background: ${({ theme }) => theme.colors.secondaryGray};
 	display: flex;
 	justify-content: flex-start;
@@ -74,9 +87,13 @@ export const Fox = styled.img`
 export const LoginText = styled.h2`
 	font-family: ${({ theme }) => theme.fonts.montserrat};
 	color: ${({ theme }) => theme.colors.white};
-	font-size: 24px;
 	font-variant: small-caps;
 	white-space: nowrap;
+	font-size: 16px;
+
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
+		font-size: 24px;
+	}
 `
 
 // Logged In Button
@@ -85,10 +102,11 @@ export const LoggedInWrapper = styled.div`
 	cursor: pointer;
 	overflow: hidden;
 	height: 7vh;
-	width: 20vw;
+	/* width: 20vw; */
+	width: auto;
 	border-radius: 7px;
 	background: ${({ theme }) => theme.colors.secondaryGray};
-	padding: 0 0.25vw 0 0;
+	padding: 0 0.25vw 0 0.5vw;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -97,9 +115,10 @@ export const LoggedInWrapper = styled.div`
 export const InnerLoggedInWrapper = styled.div`
 	background: ${({ theme }) => theme.colors.primaryGray};
 	height: 6vh;
-	width: 16vw;
+	width: 18vw;
 	border-radius: 7px;
 	padding: 0 1vw 0 1vw;
+	margin-left: 0.5vw;
 
 	display: flex;
 	justify-content: center;
@@ -115,18 +134,20 @@ export const Avatar = styled.img`
 export const AddressText = styled.h2`
 	font-family: ${({ theme }) => theme.fonts.montserrat};
 	color: ${({ theme }) => theme.colors.white};
-	font-size: 24px;
 	white-space: nowrap;
 	overflow: hidden;
-
 	text-overflow: ellipsis;
+	font-size: 16px;
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
+		font-size: 24px;
+	}
 `
 
 export const DropdownContent = styled.div`
 	display: none;
 	position: absolute;
 
-	width: 20vw;
+	width: 100%;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 	border-radius: 0 0 7px 7px;
 	z-index: 1;
