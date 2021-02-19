@@ -10,6 +10,7 @@ import {
 	SearchBoxP,
 	SearchBoxSubmit,
 	SearchInputWrapper,
+	SearchInputAndTextWrapper,
 } from './Styles/SearchBoxStyles'
 
 const preventDefault = (f) => (e) => {
@@ -33,19 +34,21 @@ const SearchBox = () => {
 	return (
 		<SearchBoxWrapper>
 			<SearchBoxTitle>Welcome</SearchBoxTitle>
-			<SearchInputWrapper>
+			<SearchInputAndTextWrapper>
 				<SearchBoxP>
 					Enter an address below, or view your current offers
 				</SearchBoxP>
 				<form onSubmit={handleSubmit}>
-					<SearchBoxInput
-						onChange={handleInputChange}
-						name='addressToSearch'
-						required
-					/>
-					<SearchBoxSubmit />
+					<SearchInputWrapper>
+						<SearchBoxInput
+							onChange={handleInputChange}
+							name='addressToSearch'
+							required
+						/>
+						<SearchBoxSubmit />
+					</SearchInputWrapper>
 				</form>
-			</SearchInputWrapper>
+			</SearchInputAndTextWrapper>
 		</SearchBoxWrapper>
 	)
 }

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 export const WelcomeBoxWrapper = styled.div`
 	background: ${({ theme }) => theme.colors.primaryGray};
-	height: 50vh;
+	height: 60vh;
 	border-radius: 7px;
 
 	display: flex;
@@ -16,8 +16,11 @@ export const WelcomeBoxWrapper = styled.div`
 	padding: 5vh 5vw;
 
 	@media (min-width: ${({ theme }) => theme.device.tablet}) {
-		padding: 5vh 5vw;
-		width: 50vh;
+		width: 50%;
+	}
+
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
+		width: 40%;
 	}
 `
 
@@ -26,7 +29,11 @@ export const WelcomeBoxTitle = styled.h1`
 	color: ${({ theme }) => theme.colors.white};
 	font-variant-caps: all-small-caps;
 	letter-spacing: 7px;
-	font-size: 48px;
+	font-size: 36px;
+	margin: 0;
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
+		font-size: 48px;
+	}
 `
 
 export const WelcomeBoxBody = styled.div`
@@ -41,8 +48,15 @@ export const WelcomeBoxBody = styled.div`
 export const SwapFox = styled.img`
 	-webkit-filter: drop-shadow(0 0 1rem #111);
 	filter: drop-shadow(0 0 1rem #111);
-	height: 12vh;
-	width: 12vh;
+	height: 10vh;
+	width: auto;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		height: 12vh;
+	}
+
+	@media (min-width: ${({ theme }) => theme.device.laptop}) {
+		height: 15vh;
+	}
 `
 
 export const WelcomeBoxP = styled.p`
@@ -52,5 +66,9 @@ export const WelcomeBoxP = styled.p`
 	font-variant-caps: all-small-caps;
 	letter-spacing: 3px;
 	text-align: center;
-	font-size: 24px;
+	font-size: 16px;
+	width: 90%;
+	@media (min-width: ${({ theme }) => theme.device.laptop}) {
+		font-size: 24px;
+	}
 `

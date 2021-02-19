@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 export const SearchBoxWrapper = styled.div`
 	background: ${({ theme }) => theme.colors.primaryGray};
-	height: 50vh;
+	height: 60vh;
 	border-radius: 7px;
 
 	display: flex;
@@ -13,11 +13,14 @@ export const SearchBoxWrapper = styled.div`
 	align-items: center;
 
 	width: 95%;
-	padding: 5vh 5vw;
+	padding: 5vh 5vw 10vh 5vw;
 
 	@media (min-width: ${({ theme }) => theme.device.tablet}) {
-		padding: 5vh 5vw;
-		width: 50vh;
+		width: 50%;
+	}
+
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
+		width: 40%;
 	}
 `
 
@@ -27,16 +30,24 @@ export const SearchBoxTitle = styled.h1`
 	font-variant-caps: all-small-caps;
 	letter-spacing: 7px;
 	margin-top: 0;
-	font-size: 48px;
-	@media (min-width: ${({ theme }) => theme.device.laptop}) {
+	font-size: 36px;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		font-size: 48px;
+	}
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
 		font-size: 56px;
 	}
 `
-
+export const SearchInputAndTextWrapper = styled.div`
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+`
 export const SearchInputWrapper = styled.div`
 	width: 85vw;
 	@media (min-width: ${({ theme }) => theme.device.tablet}) {
-		width: 42vh;
+		width: 32vw;
 	}
 `
 
@@ -58,7 +69,7 @@ export const SearchBoxInput = styled.input.attrs({
 
 	width: 85vw;
 	@media (min-width: ${({ theme }) => theme.device.tablet}) {
-		width: 42vh;
+		width: 32vw;
 	}
 `
 export const SearchBoxSubmit = styled.input.attrs({
@@ -83,9 +94,10 @@ export const SearchBoxP = styled.p`
 	font-variant-caps: all-small-caps;
 	letter-spacing: 3px;
 	text-align: center;
-	margin: 0;
+	margin: 4vh 0 !important;
 	font-size: 16px;
-	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
+	width: 90%;
+	@media (min-width: ${({ theme }) => theme.device.laptop}) {
 		font-size: 24px;
 	}
 	margin-bottom: 4vh;
