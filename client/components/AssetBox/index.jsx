@@ -5,6 +5,7 @@ import {
 	AssetThumb,
 	AssetSwapBoxList,
 	AssetSwapBoxTitle,
+    AssetSwapBoxTitleWrapper,
 	AssetWrapper,
 	AssetTitle,
 	AssetArtist,
@@ -13,7 +14,9 @@ import {
 const AssetBox = ({ data, title }) => {
 	return data ? (
 		<AssetSwapBoxWrapper>
-			<AssetSwapBoxTitle>{title}</AssetSwapBoxTitle>
+			<AssetSwapBoxTitleWrapper>
+				<AssetSwapBoxTitle>{title}</AssetSwapBoxTitle>
+			</AssetSwapBoxTitleWrapper>
 			<AssetSwapBoxList>
 				{data.assets.map((asset) => (
 					<AssetWrapper key={asset.id}>

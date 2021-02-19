@@ -27,16 +27,22 @@ export const AssetSwapBoxWrapper = styled.div`
 `
 
 export const AssetSwapBoxTitle = styled.h1`
-	margin: 0 auto 5vh auto;
+	margin: 0;
 	font-family: ${({ theme }) => theme.fonts.raleway};
 	color: ${({ theme }) => theme.colors.white};
 	font-variant-caps: all-small-caps;
-	text-shadow: 5px 5px 0.5rem #000;
-	text-overflow: ellipsis;
 	text-align: center;
+	text-shadow: 5px 5px 0.5rem #000;
 	letter-spacing: 7px;
-	width: 70%;
+
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+
 	font-size: 24px;
+
 	@media (min-width: ${({ theme }) => theme.device.tablet}) {
 		font-size: 36px;
 	}
@@ -46,49 +52,52 @@ export const AssetSwapBoxTitle = styled.h1`
 `
 
 export const AssetSwapBoxTitleWrapper = styled.div`
-	width: 50%;
+	width: 70%;
 	height: auto;
-	overflow: hidden;
-	/* text-overflow: ellipsis; */
+	display: flex;
+	justify-content: center;
+
 	margin: 0 0 5vh 0;
 `
 
 export const AssetSwapBoxList = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 	width: 100%;
 	height: auto;
 	overflow-y: scroll;
+	padding: 1em;
 `
 
 export const AssetWrapper = styled.div`
-	margin-bottom: 5vh;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	cursor: pointer;
-	/* 
+
 	flex: 1 0 500px;
 	box-sizing: border-box;
-	margin: 1rem 0.25em;
-	@media (min-width: ${({ theme }) => theme.device.tablet}) {
-		max-width: calc(50% - 1em);
+	margin: 1rem 1em;
+	@media (min-width: ${({ theme }) => theme.device.mobileS}) {
+		max-width: calc(100% - 2em);
 	}
-	@media (min-width: ${({ theme }) => theme.device.laptop}) {
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		max-width: calc(50% - 2em);
+	}
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
+		max-width: calc(33% - 2em);
+	}
+	@media (min-width: ${({ theme }) => theme.device.desktop}) {
 		max-width: calc(25% - 2em);
-	} */
-	/* &:nth-child(odd) {
-		margin-right: auto;
-	} */
+	}
 `
 
 export const AssetThumb = styled.img`
 	-webkit-filter: drop-shadow(0 0 1rem #111);
 	filter: drop-shadow(0 0 1rem #111);
-	height: 15vh;
-	width: 15vh;
+	width: 100%;
+	height: auto;
 	border-radius: 7px;
 `
 
@@ -101,6 +110,7 @@ export const AssetTitle = styled.h2`
 	letter-spacing: 3px;
 	font-size: 24px;
 	margin-bottom: 0.5rem;
+	text-align: center;
 `
 
 export const AssetArtist = styled.p`
@@ -110,4 +120,5 @@ export const AssetArtist = styled.p`
 	letter-spacing: 3px;
 	font-size: 16px;
 	margin: 0;
+	text-align: center;
 `
