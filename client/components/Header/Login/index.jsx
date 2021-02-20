@@ -16,6 +16,8 @@ import Link from 'next/link'
 
 const Login = () => {
 	const wallet = useWallet()
+
+	// checks if wallet is set to Rinkeby, then connects if valid
 	const handleClick = () => {
 		console.log(wallet)
 		if (wallet.status == 'error')
