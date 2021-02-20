@@ -16,6 +16,16 @@ import Link from 'next/link'
 
 const Login = () => {
 	const wallet = useWallet()
+	const handleClick = () => {
+		console.log(wallet)
+		if (wallet.status == 'error')
+			wallet.error.name == 'ChainUnsupportedError'
+				? alert(
+						'Your wallet is not connected to Rinkeby, please switch in Metamask and reload the page.'
+				  )
+				: alert(wallet.error.message)
+		else wallet.connect()
+	}
 
 	return wallet.status === 'connected' ? (
 		<Dropdown>
@@ -36,7 +46,7 @@ const Login = () => {
 			</DropdownContent>
 		</Dropdown>
 	) : (
-		<LoginWrapper onClick={() => wallet.connect()}>
+		<LoginWrapper onClick={handleClick}>
 			<Fox src='https://i.ibb.co/s6gwjX1/metamask-logo.png' />
 			<LoginText>Login with Metamask</LoginText>
 		</LoginWrapper>
