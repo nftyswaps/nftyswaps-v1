@@ -2,7 +2,7 @@ import { useWallet } from 'use-wallet'
 
 const fetchUserOneAssets = (setUserOneData, userOneAddress) => {
 	fetch(
-		`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&owner=${userOneAddress}`,
+		`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=50&owner=${userOneAddress}`,
 		{
 			method: 'GET',
 		}

@@ -1,6 +1,6 @@
 const fetchAssetsFromAddress = (setUserTwoData, address) => {
 	fetch(
-		`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&owner=${address}`,
+		`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=50&owner=${address}`,
 		{
 			method: 'GET',
 		}
