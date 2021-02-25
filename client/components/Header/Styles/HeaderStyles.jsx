@@ -30,7 +30,7 @@ export const TitleLogo = styled.h1`
 	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
 		font-size: 64px;
 		line-height: 64px;
-		margin-right: 2.5vw;
+		margin-right: 5vw;
 	}
 `
 
@@ -44,6 +44,7 @@ export const ListOfTheLinks = styled.ul`
 	list-style: none;
 	display: flex;
 	justify-content: space-between;
+	padding-inline-start: unset;
 `
 
 export const StyledLinkWrapper = styled.li``
@@ -63,16 +64,22 @@ export const StyledLink = styled.a`
 // Login Button
 
 export const LoginWrapper = styled.div`
+	background: ${({ theme }) => theme.colors.secondaryGray};
 	cursor: pointer;
 	overflow: hidden;
 	height: 7vh;
-	width: auto;
 	border-radius: 7px;
 	padding: 0 2.5vw;
-	background: ${({ theme }) => theme.colors.secondaryGray};
+
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+
+	width: 75vw;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		width: auto;
+	}
+
 	:nth-last-child() {
 		justify-content: center;
 	}
@@ -81,7 +88,11 @@ export const LoginWrapper = styled.div`
 export const Fox = styled.img`
 	height: 4vh;
 	width: 4vh;
-	margin-right: 10px;
+
+	margin-right: 10vw;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		margin-right: 10px;
+	}
 `
 
 export const LoginText = styled.h2`
@@ -103,19 +114,22 @@ export const LoggedInWrapper = styled.div`
 	overflow: hidden;
 	height: 7vh;
 	/* width: 20vw; */
-	width: auto;
 	border-radius: 7px;
 	background: ${({ theme }) => theme.colors.secondaryGray};
 	padding: 0 0.25vw 0 0.5vw;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	width: 75vw;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		width: auto;
+	}
 `
 
 export const InnerLoggedInWrapper = styled.div`
 	background: ${({ theme }) => theme.colors.primaryGray};
 	height: 6vh;
-	width: 18vw;
 	border-radius: 7px;
 	padding: 0 1vw 0 1vw;
 	margin-left: 0.5vw;
@@ -123,6 +137,11 @@ export const InnerLoggedInWrapper = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	width: 60vw;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		width: 18vw;
+	}
 `
 
 export const Avatar = styled.img`
