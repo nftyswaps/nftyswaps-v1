@@ -10,19 +10,19 @@ export const AssetSwapBoxWrapper = styled.div`
 	overflow: hidden;
 
 	height: 70vh;
-	/* width: 70vh; */
 	border-radius: 7px;
 	padding: 2.5vh 2.5vw;
 
-	width: 90%;
+	width: 90vw;
 
 	@media (min-width: ${({ theme }) => theme.device.tablet}) {
 		padding: 2.5vh 2.5vw;
-		width: 45%;
+		width: 40vw;
 	}
+
 	@media (min-width: ${({ theme }) => theme.device.laptop}) {
 		padding: 2vh 2vw;
-		width: 45%;
+		width: 40vw;
 	}
 `
 
@@ -78,11 +78,12 @@ export const AssetWrapper = styled.div`
 
 	flex: 1 0 500px;
 	box-sizing: border-box;
-	margin: 1rem 1em;
+	margin: 2rem 1em;
+	/* overflow: hidden; */
 	@media (min-width: ${({ theme }) => theme.device.mobileS}) {
 		max-width: calc(100% - 2em);
 	}
-	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+	@media (min-width: ${({ theme }) => theme.device.laptop}) {
 		max-width: calc(50% - 2em);
 	}
 	@media (min-width: ${({ theme }) => theme.device.laptopL}) {

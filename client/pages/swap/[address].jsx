@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 import { useWallet } from 'use-wallet'
 import { useRouter } from 'next/router'
-import MainWrapper from '../../globalStyles/MainWrapper'
 import TradingWindow from '../../components/TradingWindow'
 import Header from '../../components/Header'
 
 import fetchAssetsFromAddress from '../../queries/opensea/fetchAssetsFromAddress'
-import fetchCurrentUserAssets from '../../queries/opensea/fetchCurrentUserAssets'
 import fetchUserOneAssets from '../../queries/opensea/fetchUserOneAssets'
+import { TradingMainWrapper } from '../../components/TradingWindow/TradingWindowStyles/TradingWindowStyles'
 
 const Swap = () => {
 	const router = useRouter()
@@ -27,13 +26,13 @@ const Swap = () => {
 		fetchAssetsFromAddress(setUserTwoData, address)
 	}
 	return !userOneData || !userTwoData ? (
-		<MainWrapper>
+		<TradingMainWrapper>
 			<Header />
 
 			<TradingWindow userOneData={null} userTwoData={null} />
-		</MainWrapper>
+		</TradingMainWrapper>
 	) : (
-		<MainWrapper>
+		<TradingMainWrapper>
 			<Header />
 
 			<TradingWindow
@@ -41,7 +40,7 @@ const Swap = () => {
 				userTwoData={userTwoData}
 				userTwoAddress={address}
 			/>
-		</MainWrapper>
+		</TradingMainWrapper>
 	)
 }
 

@@ -1,5 +1,8 @@
 import React from 'react'
-import { TradingWindowWrapper } from './TradingWindowStyles/TradingWindowStyles'
+import {
+	TradingWindowWrapper,
+	MobileAssetBoxWrapper,
+} from './TradingWindowStyles/TradingWindowStyles'
 import useIsLoggedIn from '../../hooks/useIsLoggedIn'
 import WelcomeBox from '../SearchWindow/WelcomeBox'
 import { SingleWindowWrapper } from '../../globalStyles/SingleWindowStyles'
@@ -16,8 +19,12 @@ const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {
 
 	return isLoggedIn === 'connected' ? (
 		<TradingWindowWrapper>
-			<AssetBox data={userOneData} title={'My Assets'} />
-			<AssetBox data={userTwoData} title={userTwoAddress} />
+			<MobileAssetBoxWrapper>
+				<AssetBox data={userOneData} title={'My Assets'} />
+			</MobileAssetBoxWrapper>
+			<MobileAssetBoxWrapper>
+				<AssetBox data={userTwoData} title={userTwoAddress} />
+			</MobileAssetBoxWrapper>
 		</TradingWindowWrapper>
 	) : (
 		<SingleWindowWrapper>
