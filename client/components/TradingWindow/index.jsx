@@ -5,7 +5,7 @@ import {
 } from './TradingWindowStyles/TradingWindowStyles'
 import useIsLoggedIn from '../../hooks/useIsLoggedIn'
 import WelcomeBox from '../SearchWindow/WelcomeBox'
-import { SingleWindowWrapper } from '../../globalStyles/SingleWindowStyles'
+import { SingleWindowWrapper } from '../../global/globalStyles/SingleWindowStyles'
 import AssetBox from '../AssetBox/index'
 
 const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {

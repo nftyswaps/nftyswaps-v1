@@ -1,8 +1,6 @@
-import '../globalStyles/globals.css'
+import '../global/globalStyles/globals.css'
 import { ThemeProvider } from 'styled-components'
 import Head from 'next/head'
-import { Web3ReactProvider } from '@web3-react/core'
-import Web3 from 'web3'
 import { UseWalletProvider } from 'use-wallet'
 import Banner from '../components/Banner'
 

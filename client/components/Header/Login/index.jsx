@@ -30,13 +30,16 @@ const Login = () => {
 	}
 
 	return wallet.status === 'connected' ? (
+		
 		<Dropdown>
+
 			<LoggedInWrapper>
 				<Avatar src='https://i.ibb.co/jbkt8HR/wallet.png' />
 				<InnerLoggedInWrapper>
 					<AddressText>{wallet.account}</AddressText>
 				</InnerLoggedInWrapper>
 			</LoggedInWrapper>
+
 			<DropdownContent>
 				<DropdownLink>Balance: {wallet.balance}</DropdownLink>
 				<Link href='/assets'>

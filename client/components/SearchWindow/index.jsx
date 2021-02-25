@@ -3,7 +3,7 @@ import React from 'react'
 import useIsLoggedIn from '../../hooks/useIsLoggedIn'
 import WelcomeBox from './WelcomeBox'
 import SearchBox from './SearchBox'
-import { SingleWindowWrapper } from '../../globalStyles/SingleWindowStyles'
+import { SingleWindowWrapper } from '../../global/globalStyles/SingleWindowStyles'
 
 const StartBox = () => {
 	const isLoggedIn = useIsLoggedIn()
