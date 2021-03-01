@@ -6,6 +6,7 @@ client/.next
 build
 .DS_Store
 client/.DS_Store
+build/contracts
 # Logs
 logs
 *.log
