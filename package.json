@@ -20,5 +20,9 @@
   "devDependencies": {
     "babel-eslint": "^8.0.2",
     "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.4.0",
+    "chai": "^4.3.0"
   }
 }
