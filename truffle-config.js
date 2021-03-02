@@ -1,3 +1,9 @@
+// const dotenv = require('dotenv')
+
+// // Import local mnemonic for Ropsten
+// dotenv.config()
+// const { MNEMONIC } = process.env
+
 /**
  * Use this file to configure your truffle project. It's seeded with some
  * common settings for different networks and features like migrations,
@@ -44,7 +50,7 @@ module.exports = {
 		//
 		development: {
 			host: 'localhost',
-			port: 7545,
+			port: 9545,
 			network_id: '*', // Match any network id
 		},
 		// Another network with more advanced options...

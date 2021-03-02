@@ -1,5 +1,7 @@
-const NFTSwap = artifacts.require('NFTSwap')
-const ERC721Mintable = artifacts.require('ERC721Mintable')
+const NftSwap = artifacts.require('NftSwap')
+const TokenOneMinter = artifacts.require('TokenOneMinter')
+const TokenTwoMinter = artifacts.require('TokenTwoMinter')
+
 const { expect } = require('chai')
 
 let nftOne
@@ -23,9 +25,9 @@ describe('Test Swap', () => {
 	})
 
 	it("Deploy NFT's and swap contract", async () => {
-		nftSwap = await NFTSwap.new()
-		nftOne = await ERC721Mintable.new()
-		nftTwo = await ERC721Mintable.new()
+		nftSwap = await NftSwap.new()
+		nftOne = await TokenOneMinter.new()
+		nftTwo = await TokenTwoMinter.new()
 
 		expect(nftSwap.address).not.to.be.null
 		expect(nftOne.address).not.to.be.null

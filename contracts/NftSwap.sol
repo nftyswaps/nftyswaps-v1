@@ -2,7 +2,7 @@ pragma solidity 0.6.6;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
-contract NFTSwap {
+contract NftSwap {
 
 	mapping (uint256 => mapping (address => mapping (uint256 => mapping (address => address)))) public orders;
 

@@ -1,7 +1,9 @@
 const NftSwap = artifacts.require('./NftSwap.sol')
-const ERC721Mintable = artifacts.require('./Mocks/ERC721Mintable.sol')
+const TokenOneMinter = artifacts.require('./Mocks/TokenOneMinter.sol')
+const TokenTwoMinter = artifacts.require('./Mocks/TokenTwoMinter.sol')
 
 module.exports = function (deployer) {
 	deployer.deploy(NftSwap)
-	deployer.deploy(ERC721Mintable)
+	deployer.deploy(TokenOneMinter)
+	deployer.deploy(TokenTwoMinter)
 }
