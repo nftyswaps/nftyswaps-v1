@@ -31,32 +31,32 @@ const FaucetWindow = () => {
 		)
 	}
 
-	const Checks = async () => {
-		const numberOfTokens = await contracts.TokenTwoMinter.methods.balanceOf(
-			wallet.account
-		)
-		console.log(numberOfTokens)
-		return (
-			<div>
-				{numberOfTokens.map(async (token) => (
-					<h1>
-						{
-							await contracts.TokenTwoMinter.methods.tokenOfOwnerByIndex(
-								wallet.account,
-								i
-							)
-						}
-					</h1>
-				))}
-			</div>
-		)
-		// console.log(tokens)
-		// console.log(
-		// 	await contracts.TokenTwoMinter.methods
-		// 		.tokenOfOwnerByIndex(wallet.account, 0)
-		// 		.call()
-		// )
-	}
+	// const Checks = async () => {
+	// 	const numberOfTokens = await contracts.TokenTwoMinter.methods.balanceOf(
+	// 		wallet.account
+	// 	)
+	// 	console.log(numberOfTokens)
+	// 	return (
+	// 		<div>
+	// 			{numberOfTokens.map(async (token) => (
+	// 				<h1>
+	// 					{
+	// 						await contracts.TokenTwoMinter.methods.tokenOfOwnerByIndex(
+	// 							wallet.account,
+	// 							i
+	// 						)
+	// 					}
+	// 				</h1>
+	// 			))}
+	// 		</div>
+	// 	)
+	// console.log(tokens)
+	// console.log(
+	// 	await contracts.TokenTwoMinter.methods
+	// 		.tokenOfOwnerByIndex(wallet.account, 0)
+	// 		.call()
+	// )
+	// }
 
 	return (
 		<SingleWindowWrapper>
@@ -64,7 +64,7 @@ const FaucetWindow = () => {
 				<FaucetWrapper>
 					<MintButton onClick={mintTokenA}>Mint Token A</MintButton>
 					<MintButton onClick={mintTokenB}>Mint Token B</MintButton>
-					<checks />
+					{/* <Checks /> */}
 				</FaucetWrapper>
 			) : (
 				<WelcomeBox />
