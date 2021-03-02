@@ -37,6 +37,11 @@ const Header = () => {
 								<StyledLink>My Offers</StyledLink>
 							</Link>
 						</li>
+						<li>
+							<Link href='/faucet'>
+								<StyledLink>Faucet</StyledLink>
+							</Link>
+						</li>
 					</ListOfTheLinks>
 				</TitleAndLinkFlex>
 				<Login />
