@@ -7,6 +7,15 @@ build
 .DS_Store
 client/.DS_Store
 build/contracts
+client/lib/contracts
+
+package-lock.json
+
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
 # Logs
 logs
 *.log
@@ -45,3 +54,4 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 .next
+client/.DS_Store
