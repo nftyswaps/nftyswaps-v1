@@ -1,21 +1,14 @@
 import React from 'react'
-import Link from 'next/link'
 
 import { Overlay } from './BurgerMenuStyles'
-import { ListOfTheLinks, StyledLink } from '../Styles/HeaderStyles'
 import Login from '../Login'
+import NavLinks from '../NavLinks'
 
-const Menu = ({ open, isMobile, isActive }) => {
+const Menu = ({ open }) => {
 	return (
 		<Overlay open={open}>
+			<NavLinks />
 			<Login />
-			<ListOfTheLinks>
-				<li>
-					<Link href='/offers'>
-						<StyledLink>My Offers</StyledLink>
-					</Link>
-				</li>
-			</ListOfTheLinks>
 		</Overlay>
 	)
 }

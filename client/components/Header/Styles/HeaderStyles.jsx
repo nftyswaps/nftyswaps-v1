@@ -22,7 +22,7 @@ export const TitleLogo = styled.h1`
 	font-size: 32px;
 	line-height: 32px;
 	letter-spacing: 7px;
-	z-index: 99999999;
+	z-index: 100;
 
 	@media (min-width: ${({ theme }) => theme.device.laptop}) {
 		font-size: 48px;

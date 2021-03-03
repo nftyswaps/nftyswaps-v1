@@ -12,25 +12,11 @@ export const Overlay = styled.div`
 
 	height: 100vh;
 	width: 100%;
-	padding: 12rem 2rem;
+	padding: 6rem 2rem 10rem 2rem;
 
-	background: ${({ theme }) => theme.colors.primaryGray};
+	background: ${({ theme }) => theme.colors.tertiaryGray};
 	transition: transform 0.3s ease-in-out;
 	transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
-
-	a {
-		font-size: 2rem;
-		text-transform: uppercase;
-		padding: 2rem 0;
-		font-weight: bold;
-		letter-spacing: 0.5rem;
-		text-decoration: none;
-
-		@media (max-width: ${({ theme }) => theme.device.mobileL}) {
-			font-size: 1.5rem;
-			text-align: center;
-		}
-	}
 `
 
 export const BurgerIcon = styled.a`

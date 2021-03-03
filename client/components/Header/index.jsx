@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
-import { useMediaQuery } from 'react-responsive'
 import {
 	HeaderWrapper,
-	ListOfTheLinks,
-	StyledLink,
 	TitleLogo,
 	TitleAndLinkFlex,
 } from './Styles/HeaderStyles'
@@ -12,10 +9,10 @@ import Login from './Login'
 import { DesktopBreakpoint, PhoneBreakpoint } from '../../global/MediaQueries'
 import Burger from './BurgerMenu/Burger'
 import Menu from './BurgerMenu/Menu'
+import NavLinks from './NavLinks'
 
 const Header = () => {
 	const [open, setOpen] = useState(false)
-	const isMobile = useMediaQuery({ maxWidth: 1024 })
 	return (
 		<HeaderWrapper>
 			<PhoneBreakpoint>
@@ -23,7 +20,7 @@ const Header = () => {
 					<TitleLogo>NftySwaps</TitleLogo>
 				</Link>
 				<Burger open={open} setOpen={setOpen} />
-				<Menu isMobile={isMobile} open={open} setOpen={setOpen} />
+				<Menu open={open} setOpen={setOpen} />
 			</PhoneBreakpoint>
 
 			<DesktopBreakpoint>
@@ -31,18 +28,7 @@ const Header = () => {
 					<Link href='/'>
 						<TitleLogo>NftySwaps</TitleLogo>
 					</Link>
-					<ListOfTheLinks>
-						<li>
-							<Link href='/offers'>
-								<StyledLink>My Offers</StyledLink>
-							</Link>
-						</li>
-						<li>
-							<Link href='/faucet'>
-								<StyledLink>Faucet</StyledLink>
-							</Link>
-						</li>
-					</ListOfTheLinks>
+					<NavLinks />
 				</TitleAndLinkFlex>
 				<Login />
 			</DesktopBreakpoint>
