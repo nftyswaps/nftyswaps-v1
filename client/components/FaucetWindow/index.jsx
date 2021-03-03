@@ -14,6 +14,7 @@ import WelcomeBox from '../SearchWindow/WelcomeBox'
 import { useWallet } from 'use-wallet'
 import getContracts from '../../hooks/getContracts'
 import useInputChange from '../../hooks/useInputChange'
+import { SearchBoxP } from '../SearchWindow/Styles/SearchBoxStyles'
 
 const FaucetWindow = () => {
 	const wallet = useWallet()
@@ -44,6 +45,9 @@ const FaucetWindow = () => {
 			{isLoggedIn === 'connected' ? (
 				<FaucetWrapper>
 					<FaucetTitle>Faucet</FaucetTitle>
+					<SearchBoxP>
+						Here you can mint NFT's for testing purposes
+					</SearchBoxP>
 					<InnerFaucetWrapper>
 						<InputWithButtonWrapper>
 							<FaucetInput

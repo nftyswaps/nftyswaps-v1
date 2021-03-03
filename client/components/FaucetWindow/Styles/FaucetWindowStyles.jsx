@@ -75,7 +75,7 @@ export const MintButton = styled.button`
 
 export const FaucetInput = styled.input.attrs({
 	type: 'number',
-	placeholder: 'Token ID i.e. <42>',
+	placeholder: 'Token ID',
 })`
 	font-family: ${({ theme }) => theme.fonts.montserrat};
 	background-color: ${({ theme }) => theme.colors.tertiaryGray};

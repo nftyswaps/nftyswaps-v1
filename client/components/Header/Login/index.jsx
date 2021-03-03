@@ -16,10 +16,10 @@ import Link from 'next/link'
 
 const Login = () => {
 	const wallet = useWallet()
+	console.log(wallet)
 
 	// checks if wallet is set to Rinkeby, then connects if valid
 	const handleClick = () => {
-		console.log(wallet)
 		if (wallet.status == 'error')
 			wallet.error.name == 'ChainUnsupportedError'
 				? alert(
@@ -30,9 +30,7 @@ const Login = () => {
 	}
 
 	return wallet.status === 'connected' ? (
-		
 		<Dropdown>
-
 			<LoggedInWrapper>
 				<Avatar src='https://i.ibb.co/jbkt8HR/wallet.png' />
 				<InnerLoggedInWrapper>
@@ -41,7 +39,9 @@ const Login = () => {
 			</LoggedInWrapper>
 
 			<DropdownContent>
-				<DropdownLink>Balance: {wallet.balance}</DropdownLink>
+				<DropdownLink>
+					Balance: {wallet.balance / 1000000000000000000}
+				</DropdownLink>
 				<Link href='/assets'>
 					<DropdownLink>My Assets</DropdownLink>
 				</Link>
