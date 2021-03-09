@@ -2,7 +2,10 @@ import { useWallet } from 'use-wallet'
 
 const fetchCurrentUserAssets = (setData, userAccount) => {
 	fetch(
-		`https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=50&owner=${userAccount}`,
+		// Mainnet
+		// `https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=50&owner=${userAccount}`,
+		// Testnet (Rinkeby)
+		`https://rinkeby-api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=50&owner=${userAccount}`,
 		{
 			method: 'GET',
 		}

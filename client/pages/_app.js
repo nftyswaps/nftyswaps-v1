@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }) {
 					rel='stylesheet'
 				/>
 			</Head>
-			<UseWalletProvider chainId={5777}>
+			<UseWalletProvider chainId={4}>
 				<ThemeProvider theme={theme}>
 					<Banner />
 					<Component {...pageProps} />

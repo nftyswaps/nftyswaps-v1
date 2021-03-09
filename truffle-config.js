@@ -1,8 +1,9 @@
-// const dotenv = require('dotenv')
+const dotenv = require('dotenv')
+const HDWalletProvider = require('truffle-hdwallet-provider')
 
-// // Import local mnemonic for Ropsten
-// dotenv.config()
-// const { MNEMONIC } = process.env
+// Import local mnemonic for Ropsten
+dotenv.config()
+const { MNEMONIC } = process.env
 
 /**
  * Use this file to configure your truffle project. It's seeded with some
@@ -48,10 +49,19 @@ module.exports = {
 		// tab if you use this network and you must also set the `host`, `port` and `network_id`
 		// options below to some value.
 		//
-		development: {
-			host: 'localhost',
-			port: 9545,
-			network_id: '*', // Match any network id
+		// development: {
+		// 	host: 'localhost',
+		// 	port: 9545,
+		// 	network_id: '*', // Match any network id
+		// },
+		rinkeby: {
+			provider: function () {
+				return new HDWalletProvider(
+					MNEMONIC,
+					'https://rinkeby.infura.io/v3/e7c237180da34576b11044801837f758'
+				)
+			},
+			network_id: 4,
 		},
 		// Another network with more advanced options...
 		// advanced: {

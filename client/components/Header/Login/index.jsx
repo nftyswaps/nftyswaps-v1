@@ -16,7 +16,6 @@ import Link from 'next/link'
 
 const Login = () => {
 	const wallet = useWallet()
-	console.log(wallet)
 
 	// checks if wallet is set to Rinkeby, then connects if valid
 	const handleClick = () => {
@@ -40,7 +39,7 @@ const Login = () => {
 
 			<DropdownContent>
 				<DropdownLink>
-					Balance: {wallet.balance / 1000000000000000000}
+					Balance: {wallet.balance / 1000000000000000000} ETH
 				</DropdownLink>
 				<Link href='/assets'>
 					<DropdownLink>My Assets</DropdownLink>
