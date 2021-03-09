@@ -18,7 +18,7 @@ const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {
 	// 	const userTwoUsername = userTwoData.assets[0].owner.user.username
 
 	return isLoggedIn === 'connected' ? (
-		<TradingWindowWrapper>
+		<TradingWindowWrapper id='MainWindow'>
 			<MobileAssetBoxWrapper>
 				<AssetBox data={userOneData} title={'My Assets'} />
 			</MobileAssetBoxWrapper>
