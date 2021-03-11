@@ -2,7 +2,7 @@ import React from 'react'
 import {
 	TradingWindowWrapper,
 	MobileAssetBoxWrapper,
-	SwapButton
+	SwapButton,
 } from './TradingWindowStyles/TradingWindowStyles'
 import useIsLoggedIn from '../../hooks/useIsLoggedIn'
 import WelcomeBox from '../SearchWindow/WelcomeBox'
@@ -12,7 +12,8 @@ import useCreateSwapOffer from '../../hooks/useCreateSwapOffer'
 
 const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {
 	const isLoggedIn = useIsLoggedIn()
-	const [offer, handleUpdateOffer] = useCreateSwapOffer();
+	const [offer, handleUpdateOffer] = useCreateSwapOffer()
+
 	console.log(offer)
 
 	// pull usernames from opensea if they exist
@@ -25,10 +26,18 @@ const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {
 		<TradingWindowWrapper id='MainWindow'>
 			{/* <SwapButton>Preview Swap</SwapButton> */}
 			<MobileAssetBoxWrapper>
-				<AssetBox data={userOneData} title={'My Assets'} handleUpdateOffer={handleUpdateOffer} />
+				<AssetBox
+					data={userOneData}
+					title={'My Assets'}
+					handleUpdateOffer={handleUpdateOffer}
+				/>
 			</MobileAssetBoxWrapper>
 			<MobileAssetBoxWrapper>
-				<AssetBox data={userTwoData} title={userTwoAddress} handleUpdateOffer={handleUpdateOffer} />
+				<AssetBox
+					data={userTwoData}
+					title={userTwoAddress}
+					handleUpdateOffer={handleUpdateOffer}
+				/>
 			</MobileAssetBoxWrapper>
 		</TradingWindowWrapper>
 	) : (

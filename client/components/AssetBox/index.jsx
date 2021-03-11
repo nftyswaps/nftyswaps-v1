@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useModal from '../../hooks/useModal'
-import DefaultModal from '../Modal/DefaultModal'
+import AssetModal from '../Modal/AssetModal'
 import {
 	AssetSwapBoxBody,
 	AssetSwapBoxWrapper,
@@ -17,7 +17,7 @@ import {
 const AssetBox = ({ data, title, handleUpdateOffer }) => {
 	const { isOpen, toggle } = useModal()
 	// console.log(data)
-	const [modalAsset, setModalAsset] = useState({})
+	const [modalAsset, setModalAsset] = useState(null)
 
 	const handleClick = ( asset) => {
 		toggle()
@@ -46,7 +46,7 @@ const AssetBox = ({ data, title, handleUpdateOffer }) => {
 					))}
 				</AssetSwapBoxList>
 			</AssetSwapBoxWrapper>
-			<DefaultModal isOpen={isOpen} hide={toggle} asset={modalAsset} handleUpdateOffer={handleUpdateOffer}/>
+			<AssetModal isOpen={isOpen} hide={toggle} asset={modalAsset} handleUpdateOffer={handleUpdateOffer}/>
 		</>
 	) : (
 		<AssetSwapBoxWrapper>

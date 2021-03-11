@@ -1,65 +1,40 @@
 import React, { useState, useContext } from 'react'
 import ReactDOM from 'react-dom'
 import {
-	DefaultModalWrapper,
+	ModalWrapper,
 	ModalOverlay,
 	ModalHeader,
 	ModalClose,
-	ModalAssetName,
-	ModalAddToSwapButton,
+	ModalTitle,
+	ModalBody
 } from './Styles/DefaultModalStyles'
 import useModal from '../../hooks/useModal'
 import { useWallet } from 'use-wallet'
 
-const DefaultModal = ({ isOpen, hide, asset, handleUpdateOffer }) => {
-	const wallet = useWallet()
-
-	// Dropping all the letters in the wallet string for comparison with Opensea api
-	const account = wallet.account.toLowerCase()
-
-	console.log(asset)
-
-	const handleAddToSwap = () => {
-		if (asset.owner.address == account) {
-			handleUpdateOffer({
-				makerContract: asset.asset_contract.address,
-				makerID: asset.token_id,
-			})
-		} else {
-			handleUpdateOffer({
-				takerContract: asset.asset_contract.address,
-				takerID: asset.token_id,
-			})
-		}
-		hide()
-	}
+const Modal = ({ isOpen, hide, title, children }) => {
 
 	return isOpen
 		? ReactDOM.createPortal(
 				<>
 					<ModalOverlay>
-						<DefaultModalWrapper
+						<ModalWrapper
 						// // aria-modal
 						// aria-hidden
 						// tabIndex={-1}
 						// role='dialog'
 						>
 							<ModalHeader>
-								<ModalAssetName>
-									{asset.collection.name ||
-										asset.creator.user.username ||
-										'Unknown'}
-								</ModalAssetName>
+								<ModalTitle>
+									{title}
+								</ModalTitle>
 								<ModalClose onClick={hide} />
 							</ModalHeader>
-							<ModalAddToSwapButton onClick={handleAddToSwap}>
-								Add to Swap
-							</ModalAddToSwapButton>
-						</DefaultModalWrapper>
+							<ModalBody>{children}</ModalBody>
+						</ModalWrapper>
 					</ModalOverlay>
 				</>,
 				document.getElementById('MainWindow')
 		  )
 		: null
 }
-export default DefaultModal
+export default Modal

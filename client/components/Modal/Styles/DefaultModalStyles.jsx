@@ -16,7 +16,7 @@ export const ModalOverlay = styled.div`
 	background-color: rgba(0, 0, 0, 0.6);
 `
 
-export const DefaultModalWrapper = styled.div`
+export const ModalWrapper = styled.div`
 	position: absolute;
 	background: ${({ theme }) => theme.colors.primaryGray};
 	z-index: 101;
@@ -25,7 +25,6 @@ export const DefaultModalWrapper = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	overflow: hidden;
-	opacity: 1 !important;
 	height: 60vh;
 	border-radius: 7px;
 	padding: 2.5vw 2.5vw;
@@ -62,7 +61,7 @@ export const ModalClose = styled(Close)`
 	width: 40px;
 `
 
-export const ModalAssetName = styled.h1`
+export const ModalTitle = styled.h1`
 	margin: 0;
 	font-family: ${({ theme }) => theme.fonts.raleway};
 	color: ${({ theme }) => theme.colors.white};
@@ -87,20 +86,12 @@ export const ModalAssetName = styled.h1`
 	}
 `
 
-export const ModalAddToSwapButton = styled.button`
-	cursor: pointer;
-	height: 5vh;
-	font-size: 16px;
-	border: none;
-	border-radius: 7px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-
-	background: ${({ theme }) => theme.colors.orange};
-	color: ${({ theme }) => theme.colors.white};
-
-	width: auto;
-	padding: 1rem;
-	/* @media (min-width: ${({ theme }) => theme.device.tablet}) {
-		width: auto;
-	} */
+export const ModalBody = styled.div`
+	z-index: 102;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `
