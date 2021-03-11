@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useModal from '../../hooks/useModal'
 import AssetModal from '../Modal/AssetModal'
+import Asset from './Asset'
 import {
 	AssetSwapBoxBody,
 	AssetSwapBoxWrapper,
@@ -22,6 +23,7 @@ const AssetBox = ({ data, title, handleUpdateOffer }) => {
 		toggle()
 		setModalAsset(asset)
 	}
+
 	return data ? (
 		<>
 			<AssetSwapBoxWrapper>
@@ -30,20 +32,7 @@ const AssetBox = ({ data, title, handleUpdateOffer }) => {
 				</AssetSwapBoxTitleWrapper>
 				<AssetSwapBoxList>
 					{data.assets.map((asset) => (
-						<AssetWrapper
-							key={asset.id}
-							onClick={() => handleClick(asset)}
-						>
-							<AssetThumb src={asset.image_url} />
-							<AssetTitle>
-								{asset.name || asset.token_id}
-							</AssetTitle>
-							<AssetArtist>
-								{asset.collection.name ||
-									asset.creator.user.username ||
-									'Unknown'}
-							</AssetArtist>
-						</AssetWrapper>
+						<Asset asset={asset} handleClick={handleClick} />
 					))}
 				</AssetSwapBoxList>
 			</AssetSwapBoxWrapper>
