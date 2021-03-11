@@ -14,7 +14,7 @@ import {
 	AssetArtist,
 } from './Styles/AssetBoxStyles'
 
-const AssetBox = ({ data, title, handleUpdateOffer }) => {
+const AssetBox = ({ data, title, handleUpdateOffer, setAssetForSwapModal }) => {
 	const { isOpen, toggle } = useModal()
 	// console.log(data)
 	const [modalAsset, setModalAsset] = useState(null)
@@ -41,6 +41,7 @@ const AssetBox = ({ data, title, handleUpdateOffer }) => {
 				hide={toggle}
 				asset={modalAsset}
 				handleUpdateOffer={handleUpdateOffer}
+				setAssetForSwapModal={setAssetForSwapModal}
 			/>
 		</>
 	) : (

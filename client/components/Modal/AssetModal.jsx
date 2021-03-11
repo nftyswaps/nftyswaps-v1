@@ -4,7 +4,13 @@ import { ModalAddToSwapButton, AssetTokenID } from './Styles/AssetModalStyles'
 import Modal from './DefaultModal'
 import { useWallet } from 'use-wallet'
 
-const AssetModal = ({ isOpen, hide, asset, handleUpdateOffer }) => {
+const AssetModal = ({
+	isOpen,
+	hide,
+	asset,
+	handleUpdateOffer,
+	setAssetForSwapModal,
+}) => {
 	const wallet = useWallet()
 
 	// Dropping all the letters in the wallet string for comparison with Opensea api
@@ -22,6 +28,7 @@ const AssetModal = ({ isOpen, hide, asset, handleUpdateOffer }) => {
 				takerID: asset.token_id,
 			})
 		}
+		setAssetForSwapModal(asset)
 		hide()
 	}
 

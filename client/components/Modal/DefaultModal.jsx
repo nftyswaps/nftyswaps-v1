@@ -6,13 +6,12 @@ import {
 	ModalHeader,
 	ModalClose,
 	ModalTitle,
-	ModalBody
+	ModalBody,
 } from './Styles/DefaultModalStyles'
 import useModal from '../../hooks/useModal'
 import { useWallet } from 'use-wallet'
 
 const Modal = ({ isOpen, hide, title, children }) => {
-
 	return isOpen
 		? ReactDOM.createPortal(
 				<>
@@ -24,9 +23,7 @@ const Modal = ({ isOpen, hide, title, children }) => {
 						// role='dialog'
 						>
 							<ModalHeader>
-								<ModalTitle>
-									{title}
-								</ModalTitle>
+								<ModalTitle>{title}</ModalTitle>
 								<ModalClose onClick={hide} />
 							</ModalHeader>
 							<ModalBody>{children}</ModalBody>
