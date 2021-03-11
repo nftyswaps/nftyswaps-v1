@@ -60,4 +60,4 @@ client/.DS_Store
 
 # temporary
 
-client/queries
+client/queries/*
