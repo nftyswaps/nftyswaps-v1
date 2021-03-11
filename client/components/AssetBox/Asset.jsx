@@ -8,7 +8,10 @@ import {
 
 const Asset = ({ asset, handleClick }) => {
 	return (
-		<AssetWrapper key={asset.id} onClick={() => handleClick(asset)}>
+		<AssetWrapper
+			key={asset.id}
+			onClick={handleClick ? () => handleClick(asset) : null}
+		>
 			<AssetThumb src={asset.image_url} />
 			<AssetTitle>{asset.name || asset.token_id}</AssetTitle>
 			<AssetArtist>
