@@ -4,6 +4,7 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 contract NftSwap {
 
+	event newOrder(address makerAddress, address takerAddress, address makerContract, uint256 makerID, address takerContract, uint256 takerID);
 	mapping (uint256 => mapping (address => mapping (uint256 => mapping (address => address)))) public orders;
 
 	function validRecipient(
@@ -35,6 +36,10 @@ contract NftSwap {
 	    );
 		// create the order
 	    orders[makerID][makerContract][takerID][takerContract] = msg.sender;
+
+		// retrieve and emit the takerAddress 
+		address takerAddress = IERC721(takerContract).ownerOf(takerID);
+		emit newOrder(msg.sender, takerAddress, makerContract, makerID, takerContract, takerID);
 	}
 
 	function takeOrder(
