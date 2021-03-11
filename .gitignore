@@ -55,3 +55,9 @@ jspm_packages
 .node_repl_history
 .next
 client/.DS_Store
+
+
+
+# temporary
+
+client/queries
