@@ -22,7 +22,7 @@ export const DefaultModalWrapper = styled.div`
 	z-index: 101;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: center;
 	overflow: hidden;
 	opacity: 1 !important;
@@ -45,12 +45,12 @@ export const DefaultModalWrapper = styled.div`
 
 export const ModalHeader = styled.div`
 	z-index: 102;
-
 	width: 100%;
 	height: auto;
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-start;
+	padding-left: 40px;
 `
 
 export const ModalClose = styled(Close)`
