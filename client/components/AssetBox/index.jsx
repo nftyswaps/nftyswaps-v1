@@ -35,7 +35,9 @@ const AssetBox = ({ data, title, handleUpdateOffer }) => {
 							onClick={() => handleClick(asset)}
 						>
 							<AssetThumb src={asset.image_url} />
-							<AssetTitle>{asset.name}</AssetTitle>
+							<AssetTitle>
+								{asset.name || asset.token_id}
+							</AssetTitle>
 							<AssetArtist>
 								{asset.collection.name ||
 									asset.creator.user.username ||
