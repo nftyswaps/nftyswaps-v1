@@ -10,8 +10,6 @@ const AssetModal = ({ isOpen, hide, asset, handleUpdateOffer }) => {
 	// Dropping all the letters in the wallet string for comparison with Opensea api
 	const account = wallet.account.toLowerCase()
 
-	console.log(asset)
-
 	const handleAddToSwap = () => {
 		if (asset.owner.address == account) {
 			handleUpdateOffer({
