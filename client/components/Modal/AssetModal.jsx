@@ -1,8 +1,6 @@
 import React, { useState, useContext } from 'react'
 import ReactDOM from 'react-dom'
-import {
-	ModalAddToSwapButton,
-} from './Styles/AssetModalStyles'
+import { ModalAddToSwapButton, AssetTokenID } from './Styles/AssetModalStyles'
 import Modal from './DefaultModal'
 import { useWallet } from 'use-wallet'
 
@@ -29,12 +27,19 @@ const AssetModal = ({ isOpen, hide, asset, handleUpdateOffer }) => {
 		hide()
 	}
 
-	return (
-		<Modal isOpen={isOpen} hide={hide} title={!asset ? 'Asset' : asset.collection.name}>
+	return asset ? (
+		<Modal
+			isOpen={isOpen}
+			hide={hide}
+			title={!asset ? 'Asset' : asset.collection.name}
+		>
+			<AssetTokenID>Token ID: {asset.token_id}</AssetTokenID>
 			<ModalAddToSwapButton onClick={handleAddToSwap}>
 				Add to Swap
 			</ModalAddToSwapButton>
 		</Modal>
+	) : (
+		<Modal isOpen={isOpen} hide={hide} title={'Loading'}></Modal>
 	)
 }
 export default AssetModal

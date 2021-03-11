@@ -1,6 +1,7 @@
 import React from 'react'
 import {
 	TradingWindowWrapper,
+	AssetsSection,
 	MobileAssetBoxWrapper,
 	SwapButton,
 } from './TradingWindowStyles/TradingWindowStyles'
@@ -24,21 +25,23 @@ const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {
 
 	return isLoggedIn === 'connected' ? (
 		<TradingWindowWrapper id='MainWindow'>
-			{/* <SwapButton>Preview Swap</SwapButton> */}
-			<MobileAssetBoxWrapper>
-				<AssetBox
-					data={userOneData}
-					title={'My Assets'}
-					handleUpdateOffer={handleUpdateOffer}
-				/>
-			</MobileAssetBoxWrapper>
-			<MobileAssetBoxWrapper>
-				<AssetBox
-					data={userTwoData}
-					title={userTwoAddress}
-					handleUpdateOffer={handleUpdateOffer}
-				/>
-			</MobileAssetBoxWrapper>
+			<SwapButton>Preview Swap</SwapButton>
+			<AssetsSection>
+				<MobileAssetBoxWrapper>
+					<AssetBox
+						data={userOneData}
+						title={'My Assets'}
+						handleUpdateOffer={handleUpdateOffer}
+					/>
+				</MobileAssetBoxWrapper>
+				<MobileAssetBoxWrapper>
+					<AssetBox
+						data={userTwoData}
+						title={userTwoAddress}
+						handleUpdateOffer={handleUpdateOffer}
+					/>
+				</MobileAssetBoxWrapper>
+			</AssetsSection>
 		</TradingWindowWrapper>
 	) : (
 		<SingleWindowWrapper>

@@ -13,13 +13,12 @@ import {
 	AssetArtist,
 } from './Styles/AssetBoxStyles'
 
-
 const AssetBox = ({ data, title, handleUpdateOffer }) => {
 	const { isOpen, toggle } = useModal()
 	// console.log(data)
 	const [modalAsset, setModalAsset] = useState(null)
 
-	const handleClick = ( asset) => {
+	const handleClick = (asset) => {
 		toggle()
 		setModalAsset(asset)
 	}
@@ -46,7 +45,12 @@ const AssetBox = ({ data, title, handleUpdateOffer }) => {
 					))}
 				</AssetSwapBoxList>
 			</AssetSwapBoxWrapper>
-			<AssetModal isOpen={isOpen} hide={toggle} asset={modalAsset} handleUpdateOffer={handleUpdateOffer}/>
+			<AssetModal
+				isOpen={isOpen}
+				hide={toggle}
+				asset={modalAsset}
+				handleUpdateOffer={handleUpdateOffer}
+			/>
 		</>
 	) : (
 		<AssetSwapBoxWrapper>

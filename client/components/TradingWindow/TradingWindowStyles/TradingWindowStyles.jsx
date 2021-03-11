@@ -5,6 +5,24 @@ export const TradingWindowWrapper = styled.main`
 	width: 100vw;
 
 	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+`
+
+export const TradingMainWrapper = styled.div`
+	height: 100vh;
+	width: 100vw !important;
+	display: flex;
+	flex-direction: column;
+	background: ${({ theme }) => theme.colors.secondaryGray};
+`
+
+export const AssetsSection = styled.div`
+	height: auto;
+	width: 100vw !important;
+
+	display: flex;
 	align-items: center;
 
 	overflow-x: scroll;
@@ -14,14 +32,6 @@ export const TradingWindowWrapper = styled.main`
 		flex-direction: row;
 		justify-content: space-evenly;
 	}
-`
-
-export const TradingMainWrapper = styled.div`
-	height: 100vh;
-	width: 100vw !important;
-	display: flex;
-	flex-direction: column;
-	background: ${({ theme }) => theme.colors.secondaryGray};
 `
 
 export const MobileAssetBoxWrapper = styled.section`
@@ -52,15 +62,15 @@ export const SwapButton = styled.button`
 	border: none;
 	border-radius: 7px;
 	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	background: ${({ theme }) => theme.colors.orange};
 	color: ${({ theme }) => theme.colors.white};
-    font-family: ${({ theme }) => theme.fonts.montserrat};
+	font-family: ${({ theme }) => theme.fonts.montserrat};
 
-	width: auto;
+	width: fit-content;
 	padding: 1rem;
 `
