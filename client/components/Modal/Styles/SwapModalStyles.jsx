@@ -15,7 +15,7 @@ export const SwapModalAssetsWindow = styled.div`
 	height: 80%;
 	width: 100%;
 
-	border: 2px solid ${({ theme }) => theme.colors.white};
+	/* border: 2px solid ${({ theme }) => theme.colors.white};s */
 
 	display: flex;
 	align-items: center;

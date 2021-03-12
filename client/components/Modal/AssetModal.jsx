@@ -11,13 +11,14 @@ const AssetModal = ({
 	asset,
 	handleUpdateOffer,
 	setAssetForSwapModal,
+	isTradingWindow
 }) => {
 	const wallet = useWallet()
 
 	// Dropping all the letters in the wallet string for comparison with Opensea api
-	const account = wallet.account.toLowerCase()
-
+	
 	const handleAddToSwap = () => {
+		const account = wallet.account.toLowerCase()
 		if (asset.owner.address == account) {
 			handleUpdateOffer({
 				makerContract: asset.asset_contract.address,
@@ -43,9 +44,11 @@ const AssetModal = ({
 				<Asset asset={asset} />
 			</ModalInner>
 
-			<ModalAddToSwapButton onClick={handleAddToSwap}>
-				Add to Swap
-			</ModalAddToSwapButton>
+			{isTradingWindow ? (
+				<ModalAddToSwapButton onClick={handleAddToSwap}>
+					Add to Swap
+				</ModalAddToSwapButton>
+			) : null}
 		</Modal>
 	) : (
 		<Modal isOpen={isOpen} hide={hide} title={'Loading'}></Modal>

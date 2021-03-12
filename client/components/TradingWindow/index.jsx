@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
 	TradingWindowWrapper,
 	AssetsSection,
@@ -18,11 +18,16 @@ const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {
 	const { isOpen, toggle } = useModal()
 
 	const [offer, handleUpdateOffer] = useCreateSwapOffer()
+	const [isLoading, setIsLoading] = useState(true)
 
 	const [makerAsset, setMakerAsset] = useState(null)
 	const [takerAsset, setTakerAsset] = useState(null)
 
-	// console.log(offer)
+	useEffect(() => {
+		if (userOneData == null || userTwoData == null) setIsLoading(true)
+		else setIsLoading(false)
+	}, [userOneData, userTwoData])
+
 
 	// pull usernames from opensea if they exist
 	// if (userOneData) userOneUsername = userOneData.assets[0].owner.user.username
@@ -37,6 +42,7 @@ const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {
 				<AssetsSection>
 					<MobileAssetBoxWrapper>
 						<AssetBox
+							isLoading={isLoading}
 							data={userOneData}
 							title={'My Assets'}
 							handleUpdateOffer={handleUpdateOffer}
@@ -45,6 +51,7 @@ const TradingWindow = ({ userOneData, userTwoData, userTwoAddress }) => {
 					</MobileAssetBoxWrapper>
 					<MobileAssetBoxWrapper>
 						<AssetBox
+							isLoading={isLoading}
 							data={userTwoData}
 							title={userTwoAddress}
 							handleUpdateOffer={handleUpdateOffer}

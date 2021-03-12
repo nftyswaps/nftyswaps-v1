@@ -22,7 +22,6 @@ const FaucetWindow = () => {
 	const contracts = getContracts()
 	const [input, handleInputChange] = useInputChange()
 
-	console.log(contracts)
 	const mintTokenA = async () => {
 		const aResult = await contracts.TokenOneMinter.methods
 			.mint(wallet.account, input.TokenOneMinter)
@@ -80,30 +79,3 @@ const FaucetWindow = () => {
 }
 
 export default FaucetWindow
-
-// const Checks = async () => {
-// 	const numberOfTokens = await contracts.TokenTwoMinter.methods.balanceOf(
-// 		wallet.account
-// 	)
-// 	console.log(numberOfTokens)
-// 	return (
-// 		<div>
-// 			{numberOfTokens.map(async (token) => (
-// 				<h1>
-// 					{
-// 						await contracts.TokenTwoMinter.methods.tokenOfOwnerByIndex(
-// 							wallet.account,
-// 							i
-// 						)
-// 					}
-// 				</h1>
-// 			))}
-// 		</div>
-// 	)
-// console.log(tokens)
-// console.log(
-// 	await contracts.TokenTwoMinter.methods
-// 		.tokenOfOwnerByIndex(wallet.account, 0)
-// 		.call()
-// )
-// }

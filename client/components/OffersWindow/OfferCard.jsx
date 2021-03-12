@@ -3,6 +3,9 @@ import fetchTakerAsset from '../../queries/opensea/fetchTakerAsset'
 import fetchMakerAsset from '../../queries/opensea/fetchMakerAsset'
 import useModal from '../../hooks/useModal'
 import TakerSwapModal from '../Modal/TakerSwapModal'
+import SwapModal from '../Modal/SwapModal'
+
+
 import {
 	OfferCardWrapper,
 	ViewOfferButton,
@@ -23,7 +26,7 @@ const OfferCard = ({ offer, incoming }) => {
 
 	return (
 		<>
-			<OfferFrom>{offer.makerAddress}</OfferFrom>
+			<OfferFrom>{incoming ? `From: ${offer.makerAddress}` : `To: ${offer.makerAddress}`}</OfferFrom>
 			<ViewOfferButton onClick={handleViewOffer}>
 				View Offer
 			</ViewOfferButton>
@@ -36,7 +39,14 @@ const OfferCard = ({ offer, incoming }) => {
 				makerAsset={makerAsset}
 				takerAsset={takerAsset}
 			/>
-			) : null}
+			) : (<SwapModal
+			isOpen={isOpen}
+			hide={toggle}
+			offer={offer}
+			makerAsset={makerAsset}
+			takerAsset={takerAsset}
+			hideButton={true}
+		/>)}
 		</>
 	)
 }

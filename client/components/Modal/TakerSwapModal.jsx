@@ -42,7 +42,7 @@ const TakerSwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset }) => {
 
 	const handleSendOffer = async () => {
 		handleSetTakerContractInfo()
-		console.log(takerApproveSwap())
+		console.log(await takerApproveSwap())
 
 		const offerResult = await contracts.NftSwap.methods
 			.takeOrder(

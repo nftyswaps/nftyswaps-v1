@@ -12,7 +12,6 @@ const fetchUserOneAssets = (setUserOneData, userOneAddress) => {
 	)
 		.then((response) => response.json())
 		.then((data) => {
-			// console.log(data)
 			setUserOneData(data)
 		})
 		.catch((err) => {

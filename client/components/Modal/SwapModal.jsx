@@ -11,7 +11,7 @@ import Modal from './DefaultModal'
 import { useWallet } from 'use-wallet'
 import getContracts from '../../hooks/getContracts'
 
-const SwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset }) => {
+const SwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset, hideButton }) => {
 	const wallet = useWallet()
 	const contracts = getContracts()
 	const [makerContractInfo, setMakerContractInfo] = useState(null)
@@ -42,7 +42,7 @@ const SwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset }) => {
 
 	const handleSendOffer = async () => {
 		handleSetMakerContractInfo()
-		console.log(makerApproveSwap())
+		console.log(await makerApproveSwap())
 
 		const offerResult = await contracts.NftSwap.methods
 			.makeOrder(
@@ -83,9 +83,11 @@ const SwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset }) => {
 						<h1>nothing</h1>
 					)}
 				</SwapModalAssetsWindow>
+				{!hideButton ? 
 				<ModalAddToSwapButton onClick={handleSendOffer}>
 					Send Offer
-				</ModalAddToSwapButton>
+				</ModalAddToSwapButton> : null
+				}
 			</SwapModalWrapper>
 		</Modal>
 	) : (

@@ -17,9 +17,9 @@ const Assets = () => {
 	if (data == null && isLoggedIn == 'connected') {
 		fetchCurrentUserAssets(setData, userAccount)
 	}
-	
+
 	return (
-		<MainWrapper>
+		<MainWrapper id='MainWindow'>
 			<Header />
 
 			<SingleWindowWrapper>

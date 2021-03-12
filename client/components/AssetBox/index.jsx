@@ -1,30 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import useModal from '../../hooks/useModal'
 import AssetModal from '../Modal/AssetModal'
 import Asset from './Asset'
 import {
-	AssetSwapBoxBody,
 	AssetSwapBoxWrapper,
-	AssetThumb,
 	AssetSwapBoxList,
 	AssetSwapBoxTitle,
 	AssetSwapBoxTitleWrapper,
-	AssetWrapper,
-	AssetTitle,
-	AssetArtist,
 } from './Styles/AssetBoxStyles'
 
-const AssetBox = ({ data, title, handleUpdateOffer, setAssetForSwapModal }) => {
+const AssetBox = ({
+	data,
+	title,
+	handleUpdateOffer,
+	setAssetForSwapModal,
+	isLoading,
+}) => {
 	const { isOpen, toggle } = useModal()
-	// console.log(data)
 	const [modalAsset, setModalAsset] = useState(null)
+	const [isTradingWindow, setIsTradingWindow] = useState()
 
 	const handleClick = (asset) => {
+		!handleUpdateOffer
+			? setIsTradingWindow(false)
+			: setIsTradingWindow(true)
 		toggle()
 		setModalAsset(asset)
 	}
 
-	return data ? (
+	return !isLoading && data ? (
 		<>
 			<AssetSwapBoxWrapper>
 				<AssetSwapBoxTitleWrapper>
@@ -42,6 +46,7 @@ const AssetBox = ({ data, title, handleUpdateOffer, setAssetForSwapModal }) => {
 				asset={modalAsset}
 				handleUpdateOffer={handleUpdateOffer}
 				setAssetForSwapModal={setAssetForSwapModal}
+				isTradingWindow={isTradingWindow}
 			/>
 		</>
 	) : (

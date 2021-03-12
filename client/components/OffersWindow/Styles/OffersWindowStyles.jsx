@@ -46,7 +46,7 @@ export const TabNav = styled.div`
 	border-radius: 7px;
 	overflow: hidden;
 	box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
-	margin-bottom: 2rem;
+	margin-bottom: 3rem;
 `
 
 export const Tab = styled.button`
@@ -78,20 +78,17 @@ export const TabSeperator = styled.div`
 `
 
 export const OffersSection = styled.div`
-	height: 100%;
-	width: 100%;
-	padding: 2.5vh 2.5vw;
-
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-start;
+	flex-wrap: wrap;
+	width: 100%;
+	height: auto;
 	overflow-y: scroll;
 `
 
 export const OfferCardWrapper = styled.div`
+	border-radius: 7px;
 	width: 100%;
-	height: 4000px !important;
+	height: 12vh;
 	padding: 2rem;
 
 	overflow: hidden;
@@ -128,17 +125,17 @@ export const ViewOfferButton = styled.button`
 `
 
 export const OfferFrom = styled.p`
-	text-shadow: 5px 5px 0.5rem #000;
+	/* text-shadow: 2px 2px 1rem #000; */
 	font-family: ${({ theme }) => theme.fonts.montserrat};
 	color: ${({ theme }) => theme.colors.white};
 	letter-spacing: 3px;
 	text-align: center;
-	font-size: 16px;
+	font-size: 12px;
 	width: 70%;
 	text-overflow: ellipsis;
 	overflow: hidden;
 	wrap: nowrap;
 	@media (min-width: ${({ theme }) => theme.device.laptop}) {
-		font-size: 24px;
+		font-size: 16px;
 	}
 `

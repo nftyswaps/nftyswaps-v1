@@ -26,7 +26,7 @@ const IncomingOffers = () => {
 	}, [loading, error])
 
 	if (data) offers = data.offers
-	// console.log(offers)
+	
 	return (
 		<>
 			{!isLoading && isLoading !== undefined && offers.length > 0 ? (
