@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/client'
 import { useWallet } from 'use-wallet'
 import { GET_OUTGOING_OFFERS } from '../../queries/graph/getOffers'
-import { OfferBoxWrapper } from './Styles/OffersWindowStyles'
+import OfferCard from './OfferCard'
+import { OfferCardWrapper } from './Styles/OffersWindowStyles'
 
 const OutgoingOffers = () => {
 	const wallet = useWallet()
@@ -30,14 +31,11 @@ const OutgoingOffers = () => {
 	return (
 		<>
 			{!isLoading && isLoading !== undefined && offers.length > 0 ? (
-				offers.map((offer) => {
-					console.log(offer)
-					return (
-						<div>
-							<p>{offer.id}</p>
-						</div>
-					)
-				})
+				offers.map((offer) => (
+					<OfferCardWrapper>
+						<OfferCard offer={offer} />
+					</OfferCardWrapper>
+				))
 			) : (
 				<h1>nothing</h1>
 			)}

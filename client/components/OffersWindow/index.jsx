@@ -8,10 +8,10 @@ import OutgoingOffers from './OutgoingOffers'
 
 import {
 	OffersWindowWrapper,
+	OffersBoxWrapper,
 	OffersSection,
 	Tab,
 	TabNav,
-	OfferBoxWrapper,
 	TabSeperator,
 } from './Styles/OffersWindowStyles'
 
@@ -46,9 +46,9 @@ const OffersWindow = () => {
 	}
 
 	return (
-		<SingleWindowWrapper>
+		<SingleWindowWrapper id='MainWindow'>
 			{isLoggedIn === 'connected' ? (
-				<OfferBoxWrapper>
+				<OffersBoxWrapper>
 					<TabNav>
 						<Tab onClick={handleClick} isActive={isActive.incoming}>
 							Incoming
@@ -59,11 +59,9 @@ const OffersWindow = () => {
 						</Tab>
 					</TabNav>
 					<OffersSection>{tabs[selectedTab]}</OffersSection>
-				</OfferBoxWrapper>
+				</OffersBoxWrapper>
 			) : (
-				<OffersSection>
-					<WelcomeBox />
-				</OffersSection>
+				<WelcomeBox />
 			)}
 		</SingleWindowWrapper>
 	)
