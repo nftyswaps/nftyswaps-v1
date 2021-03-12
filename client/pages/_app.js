@@ -3,6 +3,12 @@ import { ThemeProvider } from 'styled-components'
 import Head from 'next/head'
 import { UseWalletProvider } from 'use-wallet'
 import Banner from '../components/Banner'
+import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
+
+const client = new ApolloClient({
+	cache: new InMemoryCache(),
+	uri: 'https://api.thegraph.com/subgraphs/name/mauricechristopher/nftyswaps',
+})
 
 const theme = {
 	device: {
@@ -53,10 +59,12 @@ function MyApp({ Component, pageProps }) {
 				/>
 			</Head>
 			<UseWalletProvider chainId={4}>
-				<ThemeProvider theme={theme}>
-					<Banner />
-					<Component {...pageProps} />
-				</ThemeProvider>
+				<ApolloProvider client={client}>
+					<ThemeProvider theme={theme}>
+						<Banner />
+						<Component {...pageProps} />
+					</ThemeProvider>
+				</ApolloProvider>
 			</UseWalletProvider>
 		</>
 	)

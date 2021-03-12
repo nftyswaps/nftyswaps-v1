@@ -15,7 +15,6 @@ dataSources:
           language: wasm/assemblyscript
           entities:
               - Offer
-              #   - incomingOffer
           abis:
               - name: NftSwap
                 file: ./abis/NftSwap.json

@@ -10,8 +10,10 @@
 		"link-contracts": "cd lib && ln -s ../../build/contracts contracts"
 	},
 	"dependencies": {
+		"@apollo/client": "^3.3.11",
 		"@web3-react/core": "^6.1.1",
 		"babel-plugin-styled-components": "^1.12.0",
+		"graphql": "^15.5.0",
 		"next": "^10.0.6",
 		"react": "16.14.0",
 		"react-dom": "16.14.0",
