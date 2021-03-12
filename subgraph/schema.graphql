@@ -1,0 +1,9 @@
+type Offer @entity {
+	id: ID!
+	makerAddress: Bytes!
+	makerContract: Bytes!
+	makerID: BigInt!
+	takerAddress: Bytes!
+	takerContract: Bytes!
+	takerID: BigInt!
+}

@@ -1,0 +1,95 @@
+[
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "makerAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "takerAddress",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "makerContract",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "makerID",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "takerContract",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "takerID",
+        "type": "uint256"
+      }
+    ],
+    "name": "newOrder",
+    "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "uint256", "name": "", "type": "uint256" },
+      { "internalType": "address", "name": "", "type": "address" }
+    ],
+    "name": "orders",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "makerContract", "type": "address" },
+      { "internalType": "uint256", "name": "makerID", "type": "uint256" },
+      { "internalType": "address", "name": "takerContract", "type": "address" },
+      { "internalType": "uint256", "name": "takerID", "type": "uint256" }
+    ],
+    "name": "validRecipient",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function",
+    "constant": true
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "makerContract", "type": "address" },
+      { "internalType": "uint256", "name": "makerID", "type": "uint256" },
+      { "internalType": "address", "name": "takerContract", "type": "address" },
+      { "internalType": "uint256", "name": "takerID", "type": "uint256" }
+    ],
+    "name": "makeOrder",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "makerContract", "type": "address" },
+      { "internalType": "uint256", "name": "makerID", "type": "uint256" },
+      { "internalType": "address", "name": "takerContract", "type": "address" },
+      { "internalType": "uint256", "name": "takerID", "type": "uint256" }
+    ],
+    "name": "takeOrder",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

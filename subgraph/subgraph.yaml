@@ -1,0 +1,25 @@
+specVersion: 0.0.2
+schema:
+    file: ./schema.graphql
+dataSources:
+    - kind: ethereum/contract
+      name: NftSwap
+      network: rinkeby
+      source:
+          address: '0x3682daC4844b568942F32ba26e55ae34c682A909'
+          abi: NftSwap
+          startBlock: 8216379
+      mapping:
+          kind: ethereum/events
+          apiVersion: 0.0.4
+          language: wasm/assemblyscript
+          entities:
+              - Offer
+              #   - incomingOffer
+          abis:
+              - name: NftSwap
+                file: ./abis/NftSwap.json
+          eventHandlers:
+              - event: newOrder(address,address,address,uint256,address,uint256)
+                handler: handlenewOrder
+          file: ./src/mapping.ts
