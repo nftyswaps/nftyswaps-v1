@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ModalAddToSwapButton } from './Styles/AssetModalStyles'
 import {
 	SwapModalWrapper,
@@ -9,29 +9,59 @@ import Asset from '../AssetBox/Asset'
 
 import Modal from './DefaultModal'
 import { useWallet } from 'use-wallet'
+import getContracts from '../../hooks/getContracts'
 
 const SwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset }) => {
 	const wallet = useWallet()
+	const contracts = getContracts()
+	const [makerContractInfo, setMakerContractInfo] = useState(null)
 
-	// Dropping all the letters in the wallet string for comparison with Opensea api
-	const account = wallet.account.toLowerCase()
+	const handleSetMakerContractInfo = () => {
+		if (
+			offer.makerContract.toLowerCase() ==
+			contracts.TokenOneMinter._address.toLowerCase()
+		) {
+			setMakerContractInfo(contracts.TokenOneMinter)
+		} else if (
+			offer.makerContract.toLowerCase() ==
+			contracts.TokenTwoMinter._address.toLowerCase()
+		) {
+			setMakerContractInfo(contracts.TokenTwoMinter)
+		} else {
+			alert('contract invalid')
+		}
+	}
 
-	// console.log(offer)
-	// console.log('makerAsset: ' + makerAsset.asset_contract.address)
-	// console.log('takerAsset: ' + takerAsset.asset_contract.address)
+	const makerApproveSwap = async () => {
+		await makerContractInfo.methods
+			.approve(contracts.NftSwap._address, offer.makerID)
+			.send({
+				from: wallet.account,
+			})
+	}
 
-	const handleSendOffer = () => {
-		// if (asset.owner.address == account) {
-		// 	handleUpdateOffer({
-		// 		makerContract: asset.asset_contract.address,
-		// 		makerID: asset.token_id,
-		// 	})
-		// } else {
-		// 	handleUpdateOffer({
-		// 		takerContract: asset.asset_contract.address,
-		// 		takerID: asset.token_id,
-		// 	})
-		// }
+	const handleSendOffer = async () => {
+		handleSetMakerContractInfo()
+		console.log(makerApproveSwap())
+
+		const offerResult = await contracts.NftSwap.methods
+			.makeOrder(
+				offer.makerContract,
+				offer.makerID,
+				offer.takerContract,
+				offer.takerID
+			)
+			.send({ from: wallet.account })
+
+		if (offerResult.transactionHash) {
+			alert(
+				`Offer successfully sent to ${offerResult.events.newOrder.returnValues.takerAddress}.
+				Your transaction hash is ${offerResult.transactionHash}`
+			)
+		} else {
+			alert(offerResult.message)
+		}
+
 		hide()
 	}
 
