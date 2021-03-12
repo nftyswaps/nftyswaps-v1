@@ -134,7 +134,7 @@ export const OfferFrom = styled.p`
 	width: 70%;
 	text-overflow: ellipsis;
 	overflow: hidden;
-	wrap: nowrap;
+	/* text-wrap: nowrap; */
 	@media (min-width: ${({ theme }) => theme.device.laptop}) {
 		font-size: 16px;
 	}

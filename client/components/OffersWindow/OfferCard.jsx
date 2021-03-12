@@ -5,7 +5,6 @@ import useModal from '../../hooks/useModal'
 import TakerSwapModal from '../Modal/TakerSwapModal'
 import SwapModal from '../Modal/SwapModal'
 
-
 import {
 	OfferCardWrapper,
 	ViewOfferButton,
@@ -26,27 +25,32 @@ const OfferCard = ({ offer, incoming }) => {
 
 	return (
 		<>
-			<OfferFrom>{incoming ? `From: ${offer.makerAddress}` : `To: ${offer.makerAddress}`}</OfferFrom>
+			<OfferFrom>
+				{incoming
+					? `From: ${offer.makerAddress}`
+					: `To: ${offer.takerAddress}`}
+			</OfferFrom>
 			<ViewOfferButton onClick={handleViewOffer}>
 				View Offer
 			</ViewOfferButton>
 			{incoming ? (
-
-			<TakerSwapModal
-				isOpen={isOpen}
-				hide={toggle}
-				offer={offer}
-				makerAsset={makerAsset}
-				takerAsset={takerAsset}
-			/>
-			) : (<SwapModal
-			isOpen={isOpen}
-			hide={toggle}
-			offer={offer}
-			makerAsset={makerAsset}
-			takerAsset={takerAsset}
-			hideButton={true}
-		/>)}
+				<TakerSwapModal
+					isOpen={isOpen}
+					hide={toggle}
+					offer={offer}
+					makerAsset={makerAsset}
+					takerAsset={takerAsset}
+				/>
+			) : (
+				<SwapModal
+					isOpen={isOpen}
+					hide={toggle}
+					offer={offer}
+					makerAsset={makerAsset}
+					takerAsset={takerAsset}
+					hideButton={true}
+				/>
+			)}
 		</>
 	)
 }
