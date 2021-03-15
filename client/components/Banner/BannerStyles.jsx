@@ -4,11 +4,11 @@ import { Close } from '@styled-icons/evil/Close'
 export const BannerWrapper = styled.div`
 	width: 100%;
 	background-color: #f6851b;
-	height: 5vh;
+	height: 7vh;
+	padding-bottom: 15px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding: 0 1em;
 	transition: all 0.42s ease-in;
 	transform: ${({ isHidden }) =>
 		isHidden ? 'translateY(-5vh); height: 0;' : 'translateY(0)'};
