@@ -72,5 +72,6 @@ export const SwapButton = styled.button`
 	font-family: ${({ theme }) => theme.fonts.montserrat};
 
 	width: fit-content;
-	padding: 1rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 `
