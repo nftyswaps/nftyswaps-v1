@@ -40,6 +40,7 @@ export const AssetSwapBoxTitle = styled.h1`
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
+	height: 42px;
 
 	font-size: 24px;
 
