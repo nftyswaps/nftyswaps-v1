@@ -21,12 +21,13 @@ const theme = {
 		desktop: '2560px',
 	},
 	colors: {
-		orange: '#F6851B',
-		white: '#F2F2F2',
+		orange: '#f6851b',
+		white: '#f2f2f2',
 		primaryGray: '#333333',
 		secondaryGray: '#222222',
 		tertiaryGray: '#444444',
-		linkBlue: '#3399FF',
+		linkBlue: '#3399ff',
+		pink: '#ff3366',
 	},
 	fonts: {
 		raleway: 'Raleway, sans-serif',
