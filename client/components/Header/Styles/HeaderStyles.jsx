@@ -11,11 +11,11 @@ export const HeaderWrapper = styled.nav`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 0 5vw 0 5vw;
+	padding: 0 4vw 0 4vw;
 `
 
 // Title
-export const TitleLogo = styled.h1`
+export const TitleLogo = styled.a`
 	font-family: ${({ theme }) => theme.fonts.raleway};
 	color: ${({ theme }) => theme.colors.orange};
 	cursor: pointer;
@@ -25,13 +25,13 @@ export const TitleLogo = styled.h1`
 	z-index: 100;
 
 	@media (min-width: ${({ theme }) => theme.device.laptop}) {
-		font-size: 48px;
-		line-height: 48px;
+		font-size: 40px;
+		line-height: 40px;
 	}
 	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
-		font-size: 64px;
-		line-height: 64px;
-		margin-right: 5vw;
+		font-size: 56px;
+		line-height: 56px;
+		margin-right: 3vw;
 	}
 `
 
@@ -41,24 +41,44 @@ export const TitleAndLinkFlex = styled.div`
 `
 
 // Links
-export const ListOfTheLinks = styled.ul`
+
+export const StyledNavLinkList = styled.ul`
+	padding: 0;
 	list-style: none;
 	display: flex;
-	justify-content: space-between;
-	padding-inline-start: unset;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-direction: column;
+
+	height: 100%;
+	width: 100%;
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		flex-direction: row;
+	}
 `
 
-export const StyledLinkWrapper = styled.li``
-
-export const StyledLink = styled.a`
+export const NavLink = styled.a`
 	cursor: pointer;
-
 	color: ${({ theme }) => theme.colors.white};
 	font-family: ${({ theme }) => theme.fonts.montserrat};
-	font-size: 16px;
+
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 4px;
+
+	text-decoration: none;
+	padding: 0;
+
+	margin: 2vh 1vw;
+	font-size: 12px;
+
+	@media (min-width: ${({ theme }) => theme.device.laptop}) {
+		font-size: 16px;
+		margin: 0 2vw;
+	}
 
 	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
-		font-size: 24px;
+		font-size: 16px;
 	}
 `
 

@@ -26,7 +26,7 @@ const Header = () => {
 			<DesktopBreakpoint>
 				<TitleAndLinkFlex>
 					<Link href='/'>
-						<TitleLogo>NftySwaps</TitleLogo>
+						<TitleLogo href='/'>NftySwaps</TitleLogo>
 					</Link>
 					<NavLinks />
 				</TitleAndLinkFlex>
