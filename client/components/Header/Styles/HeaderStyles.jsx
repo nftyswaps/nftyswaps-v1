@@ -13,7 +13,7 @@ export const HeaderWrapper = styled.nav`
 	align-items: center;
 	justify-content: space-between;
 	padding: 0 4vw 0 4vw;
-	box-shadow: 0 5px 20px black, 0 -5px 20px black;
+	box-shadow: 0 5px 20px black;
 `
 
 // Title

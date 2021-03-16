@@ -44,7 +44,7 @@ const HomeWindow = () => {
 				</StaticSecondaryText>
 			</StaticSection>
 
-			<ParallaxSection pic='https://i.ibb.co/gjFNbst/LineArt3.png'>
+			<ParallaxSection pic='https://i.ibb.co/n6N7cSS/LineArt3.png'>
 				<TextWrapper>
 					<ParallaxTitle>
 						{HomeText.ParallaxSectionTwoTitle}
