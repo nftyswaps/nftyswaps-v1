@@ -14,6 +14,7 @@ import {
 	GetStartedButton,
 	StaticTitle,
 	StaticSecondaryText,
+	RinkebyHereLink,
 	SocialDiv,
 	SocialIcon,
 } from './Styles/HomeWindowStyles'
@@ -50,9 +51,12 @@ const HomeWindow = () => {
 						{HomeText.ParallaxSectionTwoTitle}
 					</ParallaxTitle>
 					<OtherParallaxSecondaryText>
-						Go to your Metamask wallet and switch your
-						provider to Rinkeby. If you don't have some already, you
-						can get some free testnet ether here.
+						Go to your Metamask wallet and switch your provider to
+						Rinkeby. If you don't have some already, you can get
+						some free testnet ether{' '}
+						<RinkebyHereLink href={'https://faucet.rinkeby.io/'}>
+							here.
+						</RinkebyHereLink>
 					</OtherParallaxSecondaryText>
 					<br />
 					<OtherParallaxSecondaryText>

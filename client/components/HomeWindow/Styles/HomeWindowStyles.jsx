@@ -131,14 +131,10 @@ export const ParallaxSecondaryText = styled.p`
 	} */
 `
 
-export const OtherParallaxSecondaryText = styled.p`
-	color: ${({ theme }) => theme.colors.white};
+export const RinkebyHereLink = styled.a`
+	color: ${({ theme }) => theme.colors.blue};
 	text-shadow: 0 0 5px #000;
 	font-family: ${({ theme }) => theme.fonts.montserrat};
-	text-align: left;
-	width: 80%;
-	margin: 0;
-
 	font-size: 12px;
 
 	@media (min-width: ${({ theme }) => theme.device.tablet}) {
@@ -150,6 +146,28 @@ export const OtherParallaxSecondaryText = styled.p`
 		font-size: 24px;
 
 		line-height: 24px;
+	}
+`
+
+export const OtherParallaxSecondaryText = styled.p`
+	color: ${({ theme }) => theme.colors.white};
+	text-shadow: 0 0 5px #000;
+	font-family: ${({ theme }) => theme.fonts.montserrat};
+	text-align: left;
+	width: 80%;
+	margin: 0;
+
+	font-size: 12px;
+	line-height: 16px;
+
+	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		font-size: 16px;
+		line-height: 20px;
+	}
+
+	@media (min-width: ${({ theme }) => theme.device.laptop}) {
+		font-size: 24px;
+		line-height: 28px;
 	}
 `
 

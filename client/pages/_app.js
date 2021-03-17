@@ -28,6 +28,7 @@ const theme = {
 		tertiaryGray: '#444444',
 		linkBlue: '#3399ff',
 		pink: '#ff3366',
+		blue: '#3399ff',
 	},
 	fonts: {
 		raleway: 'Raleway, sans-serif',
