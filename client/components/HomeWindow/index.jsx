@@ -54,7 +54,11 @@ const HomeWindow = () => {
 						Go to your Metamask wallet and switch your provider to
 						Rinkeby. If you don't have some already, you can get
 						some free testnet ether{' '}
-						<RinkebyHereLink href={'https://faucet.rinkeby.io/'}>
+						<RinkebyHereLink
+							target='_blank'
+							href={'https://faucet.rinkeby.io/'}
+							rel='noopener noreferrer'
+						>
 							here.
 						</RinkebyHereLink>
 					</OtherParallaxSecondaryText>
