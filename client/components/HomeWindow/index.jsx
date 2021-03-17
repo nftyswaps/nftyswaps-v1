@@ -39,7 +39,7 @@ const HomeWindow = () => {
 			</ParallaxSection>
 
 			<StaticSection>
-				<StaticTitle>{HomeText.StaticSectionTwoTitle}</StaticTitle>
+				<StaticTitle>{HomeText.StaticSectionOneTitle}</StaticTitle>
 				<StaticSecondaryText>
 					{HomeText.StaticSectionOneSecondary}
 				</StaticSecondaryText>
