@@ -112,7 +112,6 @@ const HomeWindow = () => {
 					>
 						<SocialIcon src='https://i.ibb.co/XFYk4ky/Telegram.png' />
 					</SocialLink>
-
 					{/* Discord */}
 					<SocialLink
 						href='https://discord.gg/TyKzuZe7sm'
@@ -121,9 +120,14 @@ const HomeWindow = () => {
 					>
 						<SocialIcon src='https://i.ibb.co/zP1CV0k/Discord.png' />
 					</SocialLink>
-
 					{/* Twitter */}
-					<SocialIcon src='https://i.ibb.co/n7zGTws/Twitter.png' />
+					<SocialLink
+						href='https://twitter.com/NftySwaps'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<SocialIcon src='https://i.ibb.co/n7zGTws/Twitter.png' />
+					</SocialLink>
 				</SocialDiv>
 			</ParallaxSection>
 		</ParallaxWrapper>
