@@ -33,10 +33,10 @@ const SearchBox = () => {
 
 	return (
 		<SearchBoxWrapper>
-			<SearchBoxTitle>Welcome</SearchBoxTitle>
+			<SearchBoxTitle>Search</SearchBoxTitle>
 			<SearchInputAndTextWrapper>
 				<SearchBoxP>
-					Enter an address below, or view your current offers
+					Enter an address below to build your swap offer
 				</SearchBoxP>
 				<form onSubmit={handleSubmit}>
 					<SearchInputWrapper>
