@@ -1,5 +1,5 @@
 export const HomeText = {
-	ParallaxSectionOneTitle: 'The Worlds First NFT Swapping Protocol.',
+	ParallaxSectionOneTitle: 'The NFT Swapping Protocol.',
 	ParallaxSectionOneSecondary:
 		'Swap your digital assets in a simple, decentralized, peer to peer manner.',
 
@@ -13,7 +13,7 @@ export const HomeText = {
 	StaticSectionOneTitle:
 		'Bringing the in person trading experience to digital assets.',
 	StaticSectionOneSecondary:
-		'Our non-custodial smart contracts allow you to swap your digital assets on Ethereum, all in a single transaction. No more worrying about sketchy middlemen, high gas fees, and non-escrowed trades.',
+		'Our non-custodial smart contracts allow you to swap your NFTs on Ethereum, all in a single transaction. No more worrying about sketchy middlemen, high gas fees, and non-escrowed trades.',
 
 	StaticSectionTwoTitle: 'Why NftySwaps?',
 	StaticSectionTwoSecondary:
