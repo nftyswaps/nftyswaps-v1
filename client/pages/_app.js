@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }) {
 				/>
 				<meta
 					name='description'
-					content='An open source, decentralized platform for trading digital assets.'
+					content='Swap your digital assets in a simple, decentralized, peer to peer manner.'
 				></meta>
 				<link
 					rel='shortcut icon'
