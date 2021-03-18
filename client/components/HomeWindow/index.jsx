@@ -17,6 +17,7 @@ import {
 	RinkebyHereLink,
 	SocialDiv,
 	SocialIcon,
+	SocialLink,
 } from './Styles/HomeWindowStyles'
 
 const HomeWindow = () => {
@@ -103,9 +104,16 @@ const HomeWindow = () => {
 					</ParallaxSecondaryText>
 				</TextWrapper>
 				<SocialDiv>
-					<SocialIcon src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1024px-Telegram_logo.svg.png' />
-					<SocialIcon src='https://www.freepnglogos.com/uploads/discord-logo-png/discord-logo-logodownload-download-logotipos-1.png' />
-					<SocialIcon src='https://www.danoneinstitute.org/wp-content/uploads/2020/06/logo-rond-twitter.png' />
+					<SocialIcon src='https://i.ibb.co/XFYk4ky/Telegram.png' />
+
+					<SocialLink
+						href='https://discord.gg/TyKzuZe7sm'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<SocialIcon src='https://i.ibb.co/zP1CV0k/Discord.png' />
+					</SocialLink>
+					<SocialIcon src='https://i.ibb.co/n7zGTws/Twitter.png' />
 				</SocialDiv>
 			</ParallaxSection>
 		</ParallaxWrapper>

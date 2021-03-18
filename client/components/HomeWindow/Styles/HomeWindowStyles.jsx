@@ -246,6 +246,12 @@ export const SocialDiv = styled.div`
 `
 
 export const SocialIcon = styled.img`
+	cursor: pointer;
+	width: auto;
+	height: 100%;
+`
+
+export const SocialLink = styled.a`
 	width: auto;
 	height: 100%;
 `
