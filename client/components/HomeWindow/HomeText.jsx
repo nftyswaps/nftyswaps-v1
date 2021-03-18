@@ -1,5 +1,5 @@
 export const HomeText = {
-	ParallaxSectionOneTitle: 'The Worlds First NFT Trading Protocol.',
+	ParallaxSectionOneTitle: 'The Worlds First NFT Swapping Protocol.',
 	ParallaxSectionOneSecondary:
 		'Swap your digital assets in a simple, decentralized, peer to peer manner.',
 
