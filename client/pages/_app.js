@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps }) {
 				></meta>
 				<link
 					rel='shortcut icon'
-					href='https://i.ibb.co/2hw3KpR/swap-icon-png-0.png'
+					href='https://i.ibb.co/YdFLHKP/swap-icon.png'
 				/>
 				<link rel='preconnect' href='https://fonts.gstatic.com' />
 				<link
