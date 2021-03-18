@@ -5,7 +5,7 @@ import { StyledNavLinkList, NavLink } from './Styles/HeaderStyles'
 const NavList = [
 	{
 		route: '/search',
-		title: 'search',
+		title: 'swap',
 	},
 	{
 		route: '/offers',
