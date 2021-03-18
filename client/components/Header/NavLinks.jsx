@@ -26,7 +26,7 @@ const NavLinks = () => {
 	return (
 		<StyledNavLinkList>
 			{NavList.map((NavItem) => (
-				<li>
+				<li key={NavItem.title}>
 					<Link href={NavItem.route} as={NavItem.route} passHref>
 						<NavLink href={NavItem.route}>{NavItem.title}</NavLink>
 					</Link>
