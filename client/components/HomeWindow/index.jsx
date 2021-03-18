@@ -104,8 +104,16 @@ const HomeWindow = () => {
 					</ParallaxSecondaryText>
 				</TextWrapper>
 				<SocialDiv>
-					<SocialIcon src='https://i.ibb.co/XFYk4ky/Telegram.png' />
+					{/* Telegram */}
+					<SocialLink
+						href='https://t.me/nftyswaps'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<SocialIcon src='https://i.ibb.co/XFYk4ky/Telegram.png' />
+					</SocialLink>
 
+					{/* Discord */}
 					<SocialLink
 						href='https://discord.gg/TyKzuZe7sm'
 						target='_blank'
@@ -113,6 +121,8 @@ const HomeWindow = () => {
 					>
 						<SocialIcon src='https://i.ibb.co/zP1CV0k/Discord.png' />
 					</SocialLink>
+
+					{/* Twitter */}
 					<SocialIcon src='https://i.ibb.co/n7zGTws/Twitter.png' />
 				</SocialDiv>
 			</ParallaxSection>
