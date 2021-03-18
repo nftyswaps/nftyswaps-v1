@@ -25,7 +25,7 @@ const HomeWindow = () => {
 
 	return (
 		<ParallaxWrapper>
-			<ParallaxSection pic='https://i.ibb.co/4Z1f47Q/LineArt1.png'>
+			<ParallaxSection pic='https://i.ibb.co/FJc27rv/LineArt1.png'>
 				<TextWrapper>
 					<ParallaxTitle>
 						{HomeText.ParallaxSectionOneTitle}
@@ -46,7 +46,7 @@ const HomeWindow = () => {
 				</StaticSecondaryText>
 			</StaticSection>
 
-			<ParallaxSection pic='https://i.ibb.co/n6N7cSS/LineArt3.png'>
+			<ParallaxSection pic='https://i.ibb.co/tqvwqPy/LineArt2.png'>
 				<TextWrapper>
 					<ParallaxTitle>
 						{HomeText.ParallaxSectionTwoTitle}
@@ -96,7 +96,7 @@ const HomeWindow = () => {
 				</StaticSecondaryText>
 			</StaticSection>
 
-			<ParallaxSection pic='https://i.ibb.co/rmCqsQg/LineArt2.png'>
+			<ParallaxSection pic='https://i.ibb.co/jvSh03b/LineArt3.png'>
 				<TextWrapper>
 					<ParallaxTitle>Join Our Community.</ParallaxTitle>
 					<ParallaxSecondaryText>
