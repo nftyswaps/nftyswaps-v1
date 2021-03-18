@@ -3,7 +3,7 @@ import { Close } from '@styled-icons/evil/Close'
 
 export const BannerWrapper = styled.div`
 	width: 100%;
-	background-color: #f6851b;
+	background-image: linear-gradient(to right, #f6851b, #ff3366);
 	height: 5vh;
 	display: flex;
 	justify-content: center;
@@ -23,6 +23,9 @@ export const BannerWords = styled.h2`
 	font-size: 8px;
 	position: fixed;
 	@media (min-width: ${({ theme }) => theme.device.tablet}) {
+		font-size: 12px;
+	}
+	@media (min-width: ${({ theme }) => theme.device.laptopL}) {
 		font-size: 16px;
 	}
 `
