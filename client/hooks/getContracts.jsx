@@ -2,9 +2,9 @@ import { useState } from 'react'
 import Web3 from 'web3'
 import { useWallet } from 'use-wallet'
 
-import TokenOneMinterDefinition from '../lib/contracts/TokenOneMinter.json'
-import TokenTwoMinterDefinition from '../lib/contracts/TokenTwoMinter.json'
-import NftSwapDefinition from '../lib/contracts/NftSwap.json'
+import TokenOneMinterDefinition from '../../build/contracts/TokenOneMinter.json'
+import TokenTwoMinterDefinition from '../../build/contracts/TokenTwoMinter.json'
+import NftSwapDefinition from '../../build/contracts/NftSwap.json'
 
 const getContracts = () => {
 	// get network ID and the deployed address

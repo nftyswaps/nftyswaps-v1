@@ -3,7 +3,6 @@ client/node_modules
 yarn.lock
 client/.next
 .client/lib/contracts
-build
 .DS_Store
 client/.DS_Store
 subgraph/node_modules
