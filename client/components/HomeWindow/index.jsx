@@ -20,11 +20,14 @@ import {
 	SocialLink,
 } from './Styles/HomeWindowStyles'
 
+import Test from '../AbiWindow_Example';
+
 const HomeWindow = () => {
 	const router = useRouter()
 
 	return (
 		<ParallaxWrapper>
+			<Test />
 			<ParallaxSection pic='https://i.ibb.co/FJc27rv/LineArt1.png'>
 				<TextWrapper>
 					<ParallaxTitle>
