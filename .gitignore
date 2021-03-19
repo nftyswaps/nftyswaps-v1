@@ -6,8 +6,6 @@ client/.next
 build
 .DS_Store
 client/.DS_Store
-build/contracts
-client/lib/contracts
 subgraph/node_modules
 subgraph/generated
 
