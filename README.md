@@ -2,22 +2,46 @@
 
 _Now we're swapping NFTs_
 
+# Run Front-End
+
+Go into client repo
+
+```bash
+cd client
+```
+
+Install dependenices
+```bash
+yarn
+```
+
+Start development server
+```bash
+yarn run dev
+```
+
+# Run Back-End
+
 To install dependencies
 ```bash
 yarn
 ```
-In another terminal window set up your truffle environment
+
+Next compile your contracts
+
+**All abi's end up in the '/build/contracts' repo**
+
 ```bash
-truffle develop
-```
-Next compile your contracts and migrate them to the build folder
-```bash
-compile | migrate
+truffle compile
 ```
 
-In a different terminal window 
+Then deploy contracts on a selected network (in this case rinkbey)
+
+**Note for this part your will need your mneoice phrase from a ethereuem wallet that is conencted to the rinkeby networkd. 
+You will also need an ETH node for public test nets, free nodes are aviable at https://infura.io**
+
 ```bash
-cd client | yarn link-contracts | yarn dev
+truffle deploy --network rinkeby
 ```
 
 Now you're all set!
