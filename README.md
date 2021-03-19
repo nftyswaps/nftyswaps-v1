@@ -37,8 +37,8 @@ truffle compile
 
 Then deploy contracts on a selected network (in this case rinkbey)
 
-**note for this part your will need your mneoice phrase from a ethereuem wallet that is conencted to the rinkeby networkd. 
-You will also need an ETH node for public test nets, free nodes are aviable at https://infura.io. **
+**Note for this part your will need your mneoice phrase from a ethereuem wallet that is conencted to the rinkeby networkd. 
+You will also need an ETH node for public test nets, free nodes are aviable at https://infura.io**
 
 ```bash
 truffle deploy --network rinkeby
