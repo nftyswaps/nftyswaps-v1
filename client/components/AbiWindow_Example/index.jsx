@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Web3 from "web3";
+import styled from 'styled-components';
 
 // function balanceOf(address _owner) external view returns (uint256);
 // function ownerOf(uint256 _tokenId) external view returns (address);
@@ -49,7 +50,39 @@ var ERC_721_ABI = [
     }
 ];
 
+const TextArea = styled.input`
+    margin-bottom: 0px;
+    font-size: 30px;
+    width: 67%;
+    margin-left: 40px;
+  
+    border-radius: 10px;
+    border: 4px #222222 solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    :focus{
+        outline: 0;
+        box-shadow: 0 0 10px #f6851b;
+      }
+`
+
+const TransferButton = styled.div`
+  font-size: 20px;
+  text-align: center;
+  width: 25%;
+  border-radius: 2px;
+  border: 3px #f6851b solid;
+  color: #f6851b;
+  background-color: black;
+  box-shadow: 1px 1.5px;
+`
+
 export default function Hello_World_Example() {
+
+    const [ERC721_TOKEN_ADDRESS, setTokenAddress] = useState("0x07477fEf74E7F008147e014F17e615467D79b780");
+    const [ERC721_TOKEN_ID, setTokenId] = useState(714);
+    const [APPROVE_ADDRESS_TEST, setSendTo] = useState("0xE9BC460FD66E3Ae01dFEbEB79A9429061276f42c");
 
     async function Test_Functions() {
 
@@ -82,17 +115,49 @@ export default function Hello_World_Example() {
         })
     }
 
-    useEffect(() => {
-        //Test_Functions();
-    }, []);
-
     return (
         <>
-            <h1>Quick Transfer Demo</h1>
-            <h2>Input Contract Address: {ERC721_TOKEN_ADDRESS} </h2>
-            <h2>Token ID: {ERC721_TOKEN_ID} </h2>
+            <h1>Quick Transfer Demo - (Rinkeby)</h1>
 
-            <h2>TransferTo: {APPROVE_ADDRESS_TEST} </h2>
+            <h2>Input NFT Address: </h2>
+            <TextArea type="text"
+                value={ERC721_TOKEN_ADDRESS}
+                onChange={e => setTokenAddress(e.target.value)}
+            />
+
+            <h2>Token ID: </h2>
+            <TextArea type="text"
+                value={ERC721_TOKEN_ID}
+                onChange={e => setTokenId(e.target.value)}
+            />
+
+            <h2>TransferTo: </h2>
+            <TextArea type="text"
+                value={APPROVE_ADDRESS_TEST}
+                onChange={e => setSendTo(e.target.value)}
+            />
+
+            <br />
+            <br />
+            <br />
+
+            <TransferButton onClick={() => Test_Functions()}> Test Transfer </TransferButton>
+
+            <br />
+
+            <div>
+                <h2>
+                    *Must be Owner of Token / NFT your trying to transfer
+                </h2>
+
+                <h2>
+                    *Must wait for "_approve" function to go through
+                </h2>
+
+                <h2>
+                    *Assuming perfect input make sure it's the correct TokenId
+                </h2>
+            </div>
         </>
     )
 
