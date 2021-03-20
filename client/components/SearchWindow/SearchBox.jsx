@@ -34,9 +34,25 @@ const SearchBox = () => {
 	return (
 		<SearchBoxWrapper>
 			<SearchBoxTitle>Search</SearchBoxTitle>
+
 			<SearchInputAndTextWrapper>
 				<SearchBoxP>
-					Enter an address below to build your swap offer
+					NFT Conatract Address
+				</SearchBoxP>
+				<form onSubmit={handleSubmit}>
+					<SearchInputWrapper>
+						<SearchBoxInput
+							onChange={handleInputChange}
+							name='addressToSearch'
+							required
+						/>
+						<SearchBoxSubmit />
+					</SearchInputWrapper>
+				</form>
+			</SearchInputAndTextWrapper>
+			<SearchInputAndTextWrapper>
+				<SearchBoxP>
+					User Public Key or ENS
 				</SearchBoxP>
 				<form onSubmit={handleSubmit}>
 					<SearchInputWrapper>
