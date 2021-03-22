@@ -36,9 +36,7 @@ const SearchBox = () => {
 			<SearchBoxTitle>Search</SearchBoxTitle>
 
 			<SearchInputAndTextWrapper>
-				<SearchBoxP>
-					NFT Conatract Address
-				</SearchBoxP>
+				<SearchBoxP>NFT Contract Address</SearchBoxP>
 				<form onSubmit={handleSubmit}>
 					<SearchInputWrapper>
 						<SearchBoxInput
@@ -51,9 +49,7 @@ const SearchBox = () => {
 				</form>
 			</SearchInputAndTextWrapper>
 			<SearchInputAndTextWrapper>
-				<SearchBoxP>
-					User Public Key or ENS
-				</SearchBoxP>
+				<SearchBoxP>User Public Key or ENS</SearchBoxP>
 				<form onSubmit={handleSubmit}>
 					<SearchInputWrapper>
 						<SearchBoxInput
