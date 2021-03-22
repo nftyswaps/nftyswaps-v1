@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Web3 from 'web3'
+
 import { ModalAddToSwapButton } from './Styles/AssetModalStyles'
 import {
 	SwapModalWrapper,
@@ -10,30 +12,26 @@ import Asset from '../AssetBox/Asset'
 import Modal from './DefaultModal'
 import { useWallet } from 'use-wallet'
 import getContracts from '../../hooks/getContracts'
+import ERC_721_ABI from '../../global/ERC_721_ABI'
 
 const TakerSwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset }) => {
 	const wallet = useWallet()
+	const web3 = new Web3(Web3.givenProvider)
 	const contracts = getContracts()
-	const [takerContractInfo, setTakerContractInfo] = useState(null)
+	const [takerContractInstance, setTakerContractInstance] = useState(null)
 
-	const handleSetTakerContractInfo = () => {
-		if (
-			offer.takerContract.toLowerCase() ==
-			contracts.TokenOneMinter._address.toLowerCase()
-		) {
-			setTakerContractInfo(contracts.TokenOneMinter)
-		} else if (
-			offer.takerContract.toLowerCase() ==
-			contracts.TokenTwoMinter._address.toLowerCase()
-		) {
-			setTakerContractInfo(contracts.TokenTwoMinter)
-		} else {
-			alert('contract invalid')
-		}
+	const handleSetTakerContractInstance = async () => {
+		setTakerContractInstance(
+			new web3.eth.Contract(
+				ERC_721_ABI,
+				takerAsset.asset_contract.address
+			)
+		)
+		console.log(takerContractInstance)
 	}
 
 	const takerApproveSwap = async () => {
-		await takerContractInfo.methods
+		await takerContractInstance.methods
 			.approve(contracts.NftSwap._address, offer.takerID)
 			.send({
 				from: wallet.account,
@@ -41,7 +39,7 @@ const TakerSwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset }) => {
 	}
 
 	const handleSendOffer = async () => {
-		handleSetTakerContractInfo()
+		handleSetTakerContractInstance()
 		console.log(await takerApproveSwap())
 
 		const offerResult = await contracts.NftSwap.methods
@@ -55,8 +53,7 @@ const TakerSwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset }) => {
 
 		if (offerResult.transactionHash) {
 			alert(
-				`Offer successfully sent to ${offerResult.events.newOrder.returnValues.takerAddress}.
-				Your transaction hash is ${offerResult.transactionHash}`
+				`Assets successfully swapped. Your transaction hash is ${offerResult.transactionHash}`
 			)
 		} else {
 			alert(offerResult.message)

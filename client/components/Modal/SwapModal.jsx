@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Web3 from 'web3'
+
 import { ModalAddToSwapButton } from './Styles/AssetModalStyles'
 import {
 	SwapModalWrapper,
@@ -10,30 +12,35 @@ import Asset from '../AssetBox/Asset'
 import Modal from './DefaultModal'
 import { useWallet } from 'use-wallet'
 import getContracts from '../../hooks/getContracts'
+import ERC_721_ABI from '../../global/ERC_721_ABI'
 
-const SwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset, hideButton }) => {
+const SwapModal = ({
+	isOpen,
+	hide,
+	offer,
+	makerAsset,
+	takerAsset,
+	hideButton,
+}) => {
 	const wallet = useWallet()
-	const contracts = getContracts()
-	const [makerContractInfo, setMakerContractInfo] = useState(null)
 
-	const handleSetMakerContractInfo = () => {
-		if (
-			offer.makerContract.toLowerCase() ==
-			contracts.TokenOneMinter._address.toLowerCase()
-		) {
-			setMakerContractInfo(contracts.TokenOneMinter)
-		} else if (
-			offer.makerContract.toLowerCase() ==
-			contracts.TokenTwoMinter._address.toLowerCase()
-		) {
-			setMakerContractInfo(contracts.TokenTwoMinter)
-		} else {
-			alert('contract invalid')
-		}
+	const web3 = new Web3(Web3.givenProvider)
+	const contracts = getContracts()
+
+	const [makerContractInstance, setMakerContractInstance] = useState(null)
+
+	const handleSetMakerContractInstance = () => {
+		setMakerContractInstance(
+			new web3.eth.Contract(
+				ERC_721_ABI,
+				makerAsset.asset_contract.address
+			)
+		)
+		console.log(makerContractInstance)
 	}
 
 	const makerApproveSwap = async () => {
-		await makerContractInfo.methods
+		await makerContractInstance.methods
 			.approve(contracts.NftSwap._address, offer.makerID)
 			.send({
 				from: wallet.account,
@@ -41,7 +48,7 @@ const SwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset, hideButton }) 
 	}
 
 	const handleSendOffer = async () => {
-		handleSetMakerContractInfo()
+		handleSetMakerContractInstance()
 		console.log(await makerApproveSwap())
 
 		const offerResult = await contracts.NftSwap.methods
@@ -83,11 +90,11 @@ const SwapModal = ({ isOpen, hide, offer, makerAsset, takerAsset, hideButton }) 
 						<h1>nothing</h1>
 					)}
 				</SwapModalAssetsWindow>
-				{!hideButton ? 
-				<ModalAddToSwapButton onClick={handleSendOffer}>
-					Send Offer
-				</ModalAddToSwapButton> : null
-				}
+				{!hideButton ? (
+					<ModalAddToSwapButton onClick={handleSendOffer}>
+						Send Offer
+					</ModalAddToSwapButton>
+				) : null}
 			</SwapModalWrapper>
 		</Modal>
 	) : (
