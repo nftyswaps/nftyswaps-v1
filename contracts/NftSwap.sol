@@ -2,6 +2,18 @@ pragma solidity 0.6.6;
 
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+// For OrderDetials.Type
+
+// 1 = Nft -> Nft
+// 2 = Nft -> Erc20
+// 3 = Nft -> ETH
+// 4 = Nft -> Nft + Erc20
+// 5 = Nft -> Nft + Erc20 + ETH
+// 6 = Nft -> Nft + ETH
+// 7 = Nft -> ERC20 + ETH
+
 contract NftSwap {
     event newOrder(
         address ListserTokenAddress,
@@ -17,13 +29,15 @@ contract NftSwap {
         uint256 ListerTokenId;
         address BuyerTokenAddress;
         uint256 BuyerTokenId;
+        address ERC20Address;
+        uint256 ERC20Amount;
+        uint256 EthAmount;
+        uint256 Type;
     }
 
     mapping(address => mapping(uint256 => OrderDetials)) public OrderInfo;
 
-    address[] public BuyerAddress;
-
-    function makeOrder(
+    function makeNftToNft(
         address BuyerContract,
         uint256 BuyerID,
         address ListerContract,
@@ -43,6 +57,7 @@ contract NftSwap {
         OrderInfo[msg.sender][OrderID].ListerTokenId = ListerID;
         OrderInfo[msg.sender][OrderID].BuyerTokenAddress = BuyerContract;
         OrderInfo[msg.sender][OrderID].BuyerTokenId = BuyerID;
+        OrderInfo[msg.sender][OrderID].Type = 1;
 
         emit newOrder(
             ListerContract,
@@ -54,27 +69,85 @@ contract NftSwap {
         );
     }
 
-    function takeOrder(address Buyer, uint256 OrderID) public {
-        // only the token owner can create the order
+    function makeNftToERC20(
+        address ListerContract,
+        uint256 ListerID,
+        address Erc20Contract,
+        uint256 Amount,
+        uint256 OrderID
+    ) public payable {
+        //Add Check to make sure Erc20Contract address passes is Valid
         require(
-            IERC721(OrderInfo[Buyer][OrderID].ListerTokenAddress).ownerOf(
-                OrderInfo[Buyer][OrderID].ListerTokenId
+            IERC20(Erc20Contract).balanceOf(msg.sender) >= Amount,
+            "sender does not have enought coins"
+        );
+
+        OrderInfo[msg.sender][OrderID].ListerTokenAddress = ListerContract;
+        OrderInfo[msg.sender][OrderID].ListerTokenId = ListerID;
+        OrderInfo[msg.sender][OrderID].ERC20Address = Erc20Contract;
+        OrderInfo[msg.sender][OrderID].ERC20Amount = Amount;
+        OrderInfo[msg.sender][OrderID].Type = 2;
+    }
+
+    function makeNftToETH(
+        address ListerContract,
+        uint256 ListerID,
+        uint256 OrderID
+    ) public payable {
+        OrderInfo[msg.sender][OrderID].ListerTokenAddress = ListerContract;
+        OrderInfo[msg.sender][OrderID].ListerTokenId = ListerID;
+        OrderInfo[msg.sender][OrderID].EthAmount = msg.value;
+        OrderInfo[msg.sender][OrderID].Type = 3;
+    }
+
+    function takeOrder(address Buyer, uint256 OrderID) public {
+        if (OrderInfo[Buyer][OrderID].Type == 1) {
+            _takeNftToNft(Buyer, OrderID);
+        } else if (OrderInfo[Buyer][OrderID].Type == 2) {
+            _takeNftToErc20(Buyer, OrderID);
+        } else if (OrderInfo[Buyer][OrderID].Type == 3) {
+            _takeNftToEth(Buyer, OrderID);
+        }
+
+        delete OrderInfo[Buyer][OrderID];
+    }
+
+    function _transferListerNft(address _buyer, uint256 _orderID) internal {
+        require(
+            IERC721(OrderInfo[_buyer][_orderID].ListerTokenAddress).ownerOf(
+                OrderInfo[_buyer][_orderID].ListerTokenId
             ) == msg.sender,
             "not owner, cannot excute order"
         );
-        // transfer the order maker token from maker to taker
-        IERC721(OrderInfo[Buyer][OrderID].BuyerTokenAddress).transferFrom(
-            Buyer,
+
+        IERC721(OrderInfo[_buyer][_orderID].ListerTokenAddress).transferFrom(
             msg.sender,
-            OrderInfo[Buyer][OrderID].BuyerTokenId
+            _buyer,
+            OrderInfo[_buyer][_orderID].ListerTokenId
         );
-        //transfer the order taker token from taker to maker
-        IERC721(OrderInfo[Buyer][OrderID].ListerTokenAddress).transferFrom(
+    }
+
+    function _takeNftToEth(address _buyer, uint256 _orderID) internal {
+        _transferListerNft(_buyer, _orderID);
+    }
+
+    function _takeNftToNft(address _buyer, uint256 _orderID) internal {
+        _transferListerNft(_buyer, _orderID);
+
+        IERC721(OrderInfo[_buyer][_orderID].BuyerTokenAddress).transferFrom(
+            _buyer,
             msg.sender,
-            Buyer,
-            OrderInfo[Buyer][OrderID].ListerTokenId
+            OrderInfo[_buyer][_orderID].BuyerTokenId
         );
-        // Delete Order
-        delete OrderInfo[Buyer][OrderID];
+    }
+
+    function _takeNftToErc20(address _buyer, uint256 _orderID) internal {
+        _transferListerNft(_buyer, _orderID);
+
+        IERC20(OrderInfo[_buyer][_orderID].ERC20Address).transferFrom(
+            _buyer,
+            msg.sender,
+            OrderInfo[_buyer][_orderID].ERC20Amount
+        );
     }
 }
