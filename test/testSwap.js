@@ -89,7 +89,7 @@ describe('Test Swap', () => {
 		//Could check 'allowance' to equal '1000'
 	})
 
-	it('Approves Swapper NFT', async () => {
+	it('Approves Swapped NFT', async () => {
 		await nftOne.approve(nftSwap.address, makerID, { from: taker })
 
 		expect(await nftOne.getApproved(makerID)).to.be.equal(nftSwap.address)
@@ -108,5 +108,24 @@ describe('Test Swap', () => {
 
 	it('Takes NFT to ERC20', async () => {
 		await nftSwap.takeOrder(TokenHolder, 100074000714, { from: taker });
+
+		//Check ERC20 Balance of Taker
 	})
+
+	it('Makes NFT to ETH', async () => {
+		await nftSwap.makeNftToETH(nftOne.address, makerID, 1234, { from: lister, value: 417 })
+	})
+
+	it('Approves NFT to Be Swapped', async () => {
+		await nftOne.approve(nftSwap.address, makerID, { from: TokenHolder })
+
+		expect(await nftOne.getApproved(makerID)).to.be.equal(nftSwap.address)
+	})
+
+	it('Takes NFT to ETH', async () => {
+		await nftSwap.takeOrder(lister, 1234, { from: TokenHolder })
+
+		//Check the amount of ETH the TokenHolder and lister has
+	})
+
 })

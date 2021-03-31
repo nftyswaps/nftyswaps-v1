@@ -9,10 +9,13 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 // 1 = Nft -> Nft
 // 2 = Nft -> Erc20
 // 3 = Nft -> ETH
+
 // 4 = Nft -> Nft + Erc20
 // 5 = Nft -> Nft + Erc20 + ETH
 // 6 = Nft -> Nft + ETH
 // 7 = Nft -> ERC20 + ETH
+
+// 8 = Nft -> Multi *
 
 contract NftSwap {
     event newOrder(
@@ -129,6 +132,8 @@ contract NftSwap {
 
     function _takeNftToEth(address _buyer, uint256 _orderID) internal {
         _transferListerNft(_buyer, _orderID);
+
+        msg.sender.transfer(OrderInfo[_buyer][_orderID].EthAmount);
     }
 
     function _takeNftToNft(address _buyer, uint256 _orderID) internal {
