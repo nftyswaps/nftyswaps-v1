@@ -1,7 +1,8 @@
 pragma solidity 0.6.6;
 
-import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "./Interfaces/INftSwapV21.sol";
 
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 // For OrderDetials.Type
@@ -17,7 +18,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 // 8 = Nft -> Multi *
 
-contract NftSwapV21 {
+contract NftSwapV21 is INftSwapV21 {
     event newOrder(
         address ListserTokenAddress,
         uint256 ListerTokenId,
@@ -46,7 +47,7 @@ contract NftSwapV21 {
         address ListerContract,
         uint256 ListerID,
         uint256 OrderID
-    ) public {
+    ) public override returns (bool) {
         require(
             IERC721(BuyerContract).getApproved(BuyerID) == address(this),
             "not approved, cannot create order"
@@ -78,7 +79,7 @@ contract NftSwapV21 {
         address Erc20Contract,
         uint256 Amount,
         uint256 OrderID
-    ) public payable {
+    ) public override payable returns (bool) {
         //Add Check to make sure Erc20Contract address passes is Valid
         require(
             IERC20(Erc20Contract).balanceOf(msg.sender) >= Amount,
@@ -96,14 +97,18 @@ contract NftSwapV21 {
         address ListerContract,
         uint256 ListerID,
         uint256 OrderID
-    ) public payable {
+    ) public override payable returns (bool) {
         OrderInfo[msg.sender][OrderID].ListerTokenAddress = ListerContract;
         OrderInfo[msg.sender][OrderID].ListerTokenId = ListerID;
         OrderInfo[msg.sender][OrderID].EthAmount = msg.value;
         OrderInfo[msg.sender][OrderID].Type = 3;
     }
 
-    function takeOrder(address Buyer, uint256 OrderID) public {
+    function takeOrder(address Buyer, uint256 OrderID)
+        public
+        override
+        returns (bool)
+    {
         if (OrderInfo[Buyer][OrderID].Type == 1) {
             _takeNftToNft(Buyer, OrderID);
         } else if (OrderInfo[Buyer][OrderID].Type == 2) {
