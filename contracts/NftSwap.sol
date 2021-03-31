@@ -4,90 +4,77 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 contract NftSwap {
     event newOrder(
-        address makerAddress,
-        address takerAddress,
-        address makerContract,
-        uint256 makerID,
-        address takerContract,
-        uint256 takerID
+        address ListserTokenAddress,
+        uint256 ListerTokenId,
+        address BuyerAddress,
+        address BuyerTokenAddress,
+        uint256 BuyerTokenId,
+        uint256 OrderID
     );
 
-    //This makes my head hurt and seems like a usless "flex" that makes for unreadable code imo.
-    mapping(uint256 => mapping(address => mapping(uint256 => mapping(address => address))))
-        public orders;
-
-    function validRecipient(
-        address makerContract,
-        uint256 makerID,
-        address takerContract,
-        uint256 takerID
-    ) public view returns (bool) {
-
-            address recipient
-         = orders[makerID][makerContract][takerID][takerContract];
-        return recipient != address(0);
+    struct OrderDetials {
+        address ListerTokenAddress;
+        uint256 ListerTokenId;
+        address BuyerTokenAddress;
+        uint256 BuyerTokenId;
     }
+
+    mapping(address => mapping(uint256 => OrderDetials)) public OrderInfo;
+
+    address[] public BuyerAddress;
 
     function makeOrder(
-        address makerContract,
-        uint256 makerID,
-        address takerContract,
-        uint256 takerID
+        address BuyerContract,
+        uint256 BuyerID,
+        address ListerContract,
+        uint256 ListerID,
+        uint256 OrderID
     ) public {
         require(
-            !validRecipient(makerContract, makerID, takerContract, takerID),
-            "invalid order"
-        );
-        require(
-            IERC721(makerContract).getApproved(makerID) == address(this),
+            IERC721(BuyerContract).getApproved(BuyerID) == address(this),
             "not approved, cannot create order"
         );
-
-        // only the token owner can create the order
         require(
-            IERC721(makerContract).ownerOf(makerID) == msg.sender,
+            IERC721(BuyerContract).ownerOf(BuyerID) == msg.sender,
             "not owner, cannot create order"
         );
-        // create the order
-        orders[makerID][makerContract][takerID][takerContract] = msg.sender;
 
-        // retrieve and emit the takerAddress
-        address takerAddress = IERC721(takerContract).ownerOf(takerID);
+        OrderInfo[msg.sender][OrderID].ListerTokenAddress = ListerContract;
+        OrderInfo[msg.sender][OrderID].ListerTokenId = ListerID;
+        OrderInfo[msg.sender][OrderID].BuyerTokenAddress = BuyerContract;
+        OrderInfo[msg.sender][OrderID].BuyerTokenId = BuyerID;
+
         emit newOrder(
+            ListerContract,
+            ListerID,
             msg.sender,
-            takerAddress,
-            makerContract,
-            makerID,
-            takerContract,
-            takerID
+            BuyerContract,
+            BuyerID,
+            OrderID
         );
     }
 
-    function takeOrder(
-        address makerContract,
-        uint256 makerID,
-        address takerContract,
-        uint256 takerID
-    ) public {
-        require(
-            validRecipient(makerContract, makerID, takerContract, takerID),
-            "invalid order"
-        );
-
+    function takeOrder(address Buyer, uint256 OrderID) public {
         // only the token owner can create the order
         require(
-            IERC721(takerContract).ownerOf(takerID) == msg.sender,
-            "not owner, cannot create order"
+            IERC721(OrderInfo[Buyer][OrderID].ListerTokenAddress).ownerOf(
+                OrderInfo[Buyer][OrderID].ListerTokenId
+            ) == msg.sender,
+            "not owner, cannot excute order"
         );
-
-
-            address recipient
-         = orders[makerID][makerContract][takerID][takerContract];
-
-        delete orders[makerID][makerContract][takerID][takerContract];
         // transfer the order maker token from maker to taker
-        IERC721(makerContract).transferFrom(recipient, msg.sender, makerID);
-        // transfer the order taker token from taker to maker
-        IERC721(takerContract).transferFrom(msg.sender, recipient, takerID);
+        IERC721(OrderInfo[Buyer][OrderID].BuyerTokenAddress).transferFrom(
+            Buyer,
+            msg.sender,
+            OrderInfo[Buyer][OrderID].BuyerTokenId
+        );
+        //transfer the order taker token from taker to maker
+        IERC721(OrderInfo[Buyer][OrderID].ListerTokenAddress).transferFrom(
+            msg.sender,
+            Buyer,
+            OrderInfo[Buyer][OrderID].ListerTokenId
+        );
+        // Delete Order
+        delete OrderInfo[Buyer][OrderID];
     }
 }
