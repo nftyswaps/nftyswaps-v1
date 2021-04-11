@@ -19,15 +19,8 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 // 8 = Nft -> Multi *
 
 contract NftSwapV21 is INftSwapV21 {
-    event newOrder(
-        address ListserTokenAddress,
-        uint256 ListerTokenId,
-        address BuyerAddress,
-        address BuyerTokenAddress,
-        uint256 BuyerTokenId,
-        uint256 OrderID
-    );
 
+    //Can be split into Two
     struct OrderDetials {
         address ListerTokenAddress;
         uint256 ListerTokenId;
@@ -63,7 +56,7 @@ contract NftSwapV21 is INftSwapV21 {
         OrderInfo[msg.sender][OrderID].BuyerTokenId = BuyerID;
         OrderInfo[msg.sender][OrderID].Type = 1;
 
-        emit newOrder(
+        emit newNftOrder(
             ListerContract,
             ListerID,
             msg.sender,
@@ -91,6 +84,15 @@ contract NftSwapV21 is INftSwapV21 {
         OrderInfo[msg.sender][OrderID].ERC20Address = Erc20Contract;
         OrderInfo[msg.sender][OrderID].ERC20Amount = Amount;
         OrderInfo[msg.sender][OrderID].Type = 2;
+    
+        emit newErcOrder(
+            ListerContract,
+            ListerID,
+            msg.sender,
+            Erc20Contract,
+            Amount,
+            OrderID
+        );
     }
 
     function makeNftToETH(
@@ -102,6 +104,14 @@ contract NftSwapV21 is INftSwapV21 {
         OrderInfo[msg.sender][OrderID].ListerTokenId = ListerID;
         OrderInfo[msg.sender][OrderID].EthAmount = msg.value;
         OrderInfo[msg.sender][OrderID].Type = 3;
+    
+        emit newEthOrder(
+            ListerContract,
+            ListerID,
+            msg.sender,
+            msg.value,
+            OrderID
+        );
     }
 
     function takeOrder(address Buyer, uint256 OrderID)

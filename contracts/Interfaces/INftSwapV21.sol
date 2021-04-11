@@ -3,6 +3,32 @@ pragma solidity 0.6.6;
 interface INftSwapV21 {
     // Considering moving OrderID creation to be within the function
 
+    event newNftOrder(
+        address ListserTokenAddress,
+        uint256 ListerTokenId,
+        address BuyerAddress,
+        address BuyerTokenAddress,
+        uint256 BuyerTokenId,
+        uint256 OrderID
+    );
+
+    event newErcOrder(
+        address ListserTokenAddress,
+        uint256 ListerTokenId,
+        address BuyerAddress,
+        address Erc20Contract,
+        uint256 Amount,
+        uint256 OrderID
+    );
+
+    event newEthOrder(
+        address ListserTokenAddress,
+        uint256 ListerTokenId,
+        address BuyerAddress,
+        uint256 Amount,
+        uint256 OrderID
+    );
+
     /**
      * @dev Creates an Offer of One NFT for One other NFT  
         @param BuyerContract Address of the NFT being preposed to the lister.
